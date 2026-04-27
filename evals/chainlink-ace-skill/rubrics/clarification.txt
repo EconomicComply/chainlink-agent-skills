@@ -1,0 +1,6 @@
+Evaluate whether the response asks for clarification only when useful.
+
+Score:
+- 1.0: Proceeds when enough information is available; asks one focused question when contract type, function selector, chain, or compliance rule is required (PASS)
+- 0.5: Asks too many questions or misses one needed clarification (FAIL)
+- 0.0: Blocks unnecessarily or proceeds despite missing information that changes the ACE answer materially (FAIL)

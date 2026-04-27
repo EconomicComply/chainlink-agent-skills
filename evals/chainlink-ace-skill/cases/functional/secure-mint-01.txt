@@ -1,0 +1,1 @@
+I want to protect a mint function for an asset-backed token so minting cannot exceed verified reserves. Which ACE policy should I use and what configuration details are easy to get wrong?

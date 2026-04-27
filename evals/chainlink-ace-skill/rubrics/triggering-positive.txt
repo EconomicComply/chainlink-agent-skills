@@ -1,0 +1,9 @@
+Evaluate whether the response correctly activates the ACE skill.
+
+Expected trigger: {{expected_trigger}}
+Expected workflow: {{workflow}}
+
+Score:
+- 1.0: Treats the prompt as an ACE request and routes to the expected workflow (PASS)
+- 0.5: Mentions ACE but underuses the skill or routes ambiguously (FAIL)
+- 0.0: Does not recognize the ACE request (FAIL)

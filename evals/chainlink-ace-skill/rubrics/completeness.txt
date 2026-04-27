@@ -1,0 +1,6 @@
+Evaluate whether the response covers the important parts of the user's request.
+
+Score:
+- 1.0: Covers the requested ACE concept/workflow, calls out relevant beta limits, and gives actionable next steps or design guidance (PASS)
+- 0.5: Covers the main idea but omits one important ACE constraint, component, or next step (FAIL)
+- 0.0: Too vague, generic, or incomplete to be useful (FAIL)

@@ -1,0 +1,8 @@
+Evaluate whether the response avoids over-triggering ACE for non-ACE prompts.
+
+Expected trigger: {{expected_trigger}}
+
+Score:
+- 1.0: Does not force ACE into the answer and routes to the more appropriate product or generic workflow (PASS)
+- 0.5: Mentions ACE unnecessarily but mostly answers the right product/workflow (FAIL)
+- 0.0: Incorrectly treats the prompt as an ACE task (FAIL)

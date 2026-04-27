@@ -1,0 +1,6 @@
+Evaluate whether freshness-sensitive facts are handled correctly.
+
+Score:
+- 1.0: Uses embedded references for stable concepts and asks to fetch/cites GitHub repository sources for exact source signatures, package scripts, remappings, license terms, or current repo structure (PASS)
+- 0.5: Mostly correct but one freshness-sensitive detail is treated too confidently (FAIL)
+- 0.0: Invents or hardcodes current ACE facts that should be verified (FAIL)

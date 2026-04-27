@@ -1,0 +1,1 @@
+Design an ACE policy chain for ERC-20 transfers that blocks sanctioned wallets, requires KYC for sender and receiver, caps each transfer at 50,000 units, and lets compliance admins pause transfers during an incident. Include ordering and default result guidance.

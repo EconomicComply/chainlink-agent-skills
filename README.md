@@ -4,18 +4,17 @@ Official Repo for Chainlink skills. Each skill follows the [Agent Skills specifi
 
 ## Available Skills
 
-
-| Skill                     | Description                                                               |
-| ------------------------- | ------------------------------------------------------------------------- |
-| [chainlink-cre-skill](chainlink-cre-skill/) | CRE onboarding, workflow generation, CLI/SDK help, and runtime operations |
-| [chainlink-ccip-skill](chainlink-ccip-skill/) | CCIP sends, contracts, local testing, monitoring, discovery, and CCT workflows |
-| [chainlink-data-feeds-skill](chainlink-data-feeds-skill/) | Data Feeds contracts, multi-chain Data Feeds integration |
+| Skill                                                         | Description                                                                                           |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| [chainlink-cre-skill](chainlink-cre-skill/)                   | CRE onboarding, workflow generation, CLI/SDK help, and runtime operations                             |
+| [chainlink-ccip-skill](chainlink-ccip-skill/)                 | CCIP sends, contracts, local testing, monitoring, discovery, and CCT workflows                        |
+| [chainlink-data-feeds-skill](chainlink-data-feeds-skill/)     | Data Feeds contracts, multi-chain Data Feeds integration                                              |
 | [chainlink-data-streams-skill](chainlink-data-streams-skill/) | Data Streams REST/WebSocket SDKs, report decoding, on-chain verification, and real-time frontend apps |
-
+| [chainlink-ace-skill](chainlink-ace-skill/)                   | ACE core contracts, Policy Management, Cross-Chain Identity, and compliance token examples            |
 
 ## Install
 
-Use [vercel's CLI for the open skills ecosystem](https://github.com/vercel-labs/skills#readme). Project-level installation is the default. 
+Use [vercel's CLI for the open skills ecosystem](https://github.com/vercel-labs/skills#readme). Project-level installation is the default.
 
 ```bash
 npx skills add smartcontractkit/chainlink-agent-skills
@@ -25,16 +24,16 @@ npx skills add smartcontractkit/chainlink-agent-skills
 <img width="75%" alt="npx skills add" src="https://github.com/user-attachments/assets/4edcf29c-f34a-4e56-90de-ec5e92deee1a" />
 </p>
 
-
 But if you want to install globally (at the user level) then add the `-g` flag.
 
-Note the use of `--skill` to specify which specific skill to install. 
+Note the use of `--skill` to specify which specific skill to install.
 
 ```bash
 npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-cre-skill -g
 npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-ccip-skill -g
 npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-data-feeds-skill -g
 npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-data-streams-skill -g
+npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-ace-skill -g
 ```
 
 ## Use
