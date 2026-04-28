@@ -1,0 +1,1 @@
+Our auditors need evidence for ACE policy decisions and identity state at a quarter-end cutoff. Which ACE API/resources should we point them at, and what onchain evidence should we reconcile it against?

@@ -58,6 +58,56 @@ tests:
     assert: *functional_asserts
 
   - vars:
+      case_file: cases/functional/platform-beta-mainnet-01.txt
+      workflow: platform-beta
+      requires_live_source: "yes"
+    metadata:
+      workflow: platform-beta
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/reporting-api-audit-01.txt
+      workflow: platform-reporting
+      requires_live_source: "yes"
+    metadata:
+      workflow: platform-reporting
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/coordinator-vs-reporting-01.txt
+      workflow: platform-apis
+      requires_live_source: "yes"
+    metadata:
+      workflow: platform-apis
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/platform-credential-mode-01.txt
+      workflow: platform-identity
+      requires_live_source: "yes"
+    metadata:
+      workflow: platform-identity
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/foundry-platform-visibility-01.txt
+      workflow: platform-visibility
+      requires_live_source: "yes"
+    metadata:
+      workflow: platform-visibility
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
       case_file: cases/functional/onchain-contracts-01.txt
       workflow: onchain-contracts
       requires_live_source: "no"
@@ -123,6 +173,16 @@ tests:
       expected_trigger: "yes"
     metadata:
       workflow: repo-scope
+      category: trigger-positive
+      smoke: true
+    assert: *trigger_positive_asserts
+
+  - vars:
+      case_file: cases/trigger-positive/ace-platform-01.txt
+      workflow: platform-beta
+      expected_trigger: "yes"
+    metadata:
+      workflow: platform-beta
       category: trigger-positive
       smoke: true
     assert: *trigger_positive_asserts

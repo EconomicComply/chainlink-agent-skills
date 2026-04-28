@@ -2,7 +2,7 @@
 
 Public contracts source: `https://github.com/smartcontractkit/chainlink-ace`
 
-This skill is intentionally sourced from the public `chainlink-ace` repository only.
+For managed ACE Platform/Beta docs, use official docs.chain.link URLs in `references/platform-and-beta.md` and `references/official-sources.md`.
 
 ## Repository Pages Covered
 
@@ -43,4 +43,5 @@ This skill is intentionally sourced from the public `chainlink-ace` repository o
 | `references/policy-library.md` | Policies README and policy source package |
 | `references/cross-chain-identity.md` | Cross-Chain Identity README, Concepts, Credential Flow, Security |
 | `references/contracts-and-source.md` | Package source map and interface/source links |
-| `references/official-sources.md` | GitHub URL map and freshness guidance |
+| `references/platform-and-beta.md` | ACE Platform, Beta scope, Coordinator API, Reporting API, managed product limitations |
+| `references/official-sources.md` | GitHub and docs.chain.link URL map and freshness guidance |

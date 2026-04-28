@@ -7,6 +7,7 @@ Read this file when:
 - The user asks how to start from the `chainlink-ace` repository
 - The user asks about repository scope, package layout, production use, or licensing
 - The user asks whether custom policies, custom extractors, custom mappers, or mainnet use are possible
+- The user asks whether ACE Platform supports a feature and needs the answer separated from OSS self-deployment
 
 ## What ACE Is
 
@@ -56,6 +57,17 @@ Use **tokens examples** when:
 - The user is building an ERC-3643/T-REX-style security token
 - The user wants a reference implementation rather than adding ACE to a custom app from scratch
 
+## Product vs Self-Deploy Scope
+
+When a user asks "can I use ACE for X?", first determine whether they mean:
+
+| User intent | Answer from |
+| --- | --- |
+| Self-deploy audited contracts from the repository | Public repo references in this skill |
+| Use the managed ACE Platform, UI, Coordinator API, Reporting API, or Beta access program | `platform-and-beta.md` and live `docs.chain.link/ace` docs |
+
+Do not merge those surfaces. A repo capability such as custom policies or Credential Data Validators does not automatically mean the managed Platform Beta exposes that capability. A Platform Beta limitation such as testnet-only support does not automatically prevent a team from evaluating self-deployed OSS contracts under the license and security requirements.
+
 ## Fit Checklist
 
 ACE core contracts are a good fit when:
@@ -72,6 +84,7 @@ ACE may require extra design work when:
 - The compliance rule depends on external systems, signatures, or complex context
 - The protected function uses non-standard calldata and needs a custom extractor
 - The protocol needs operational indexing, dashboards, or admin tooling around the raw contracts
+- The team expects managed ACE Platform visibility for self-deployed contracts; registration/indexing is product-scoped and must be checked against current docs
 
 ## License Guidance
 
@@ -84,10 +97,11 @@ Do not provide legal advice.
 When answering "can I use ACE for X?", use:
 
 1. Short fit verdict
-2. Relevant package(s)
-3. Required integration steps
-4. Security/licensing caveats
-5. Next repo doc/source to inspect
+2. Scope split: managed ACE Platform vs self-deployed OSS contracts, if relevant
+3. Relevant package(s)
+4. Required integration steps
+5. Security/licensing caveats
+6. Next repo doc/source or product doc to inspect
 
 Example:
 

@@ -1,0 +1,1 @@
+If I deploy ACE contracts myself with Foundry, will the ACE Platform UI automatically show the PolicyEngine, target contracts, and policy runs? What needs to be registered or indexed?

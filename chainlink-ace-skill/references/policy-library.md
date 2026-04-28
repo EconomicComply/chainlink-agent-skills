@@ -164,6 +164,7 @@ Safety notes:
 - Verify token decimals and reserve feed decimals.
 - Fetch or verify reserve feed heartbeat before choosing staleness.
 - Setting max staleness to `0` accepts infinite staleness and should be called out explicitly.
+- If the user asks for product-documented SecureMint behavior, check the current docs.chain.link SecureMintPolicy page before discussing negative margin modes, multiple reserve feeds, or multi-feed composition. Do not invent multi-feed behavior from the repo summary alone.
 
 ## Selection Guide
 

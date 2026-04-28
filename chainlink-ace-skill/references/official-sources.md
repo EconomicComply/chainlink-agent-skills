@@ -1,19 +1,34 @@
 # Official Sources
 
-Use this file when an answer depends on current ACE repository facts, source code, package scripts, docs paths, or licensing.
+Use this file when an answer depends on current ACE repository facts, source code, package scripts, docs paths, licensing, managed Platform scope, Beta constraints, product APIs, supported networks, or reporting surfaces.
 
 ## Freshness Policy
 
-1. Use only the public `smartcontractkit/chainlink-ace` repository and raw GitHub files for ACE-specific source material.
-2. Do not use non-repository ACE docs as source material for this skill.
+1. Use the public `smartcontractkit/chainlink-ace` repository and raw GitHub files for OSS contract/source material.
+2. Use official `docs.chain.link/ace` pages for ACE Platform, Beta scope, supported networks, Coordinator API, Reporting API, and managed product behavior.
 3. Re-check repository source before providing exact function signatures, event schemas, package scripts, remappings, imports, or license details.
-4. If live repository source conflicts with a bundled reference, prefer the live repository source and say that the repo has changed.
-5. Cite the exact GitHub source used for freshness-sensitive answers.
+4. Re-check official docs before providing current product availability, supported networks, mainnet readiness, API resources, or Beta limitations.
+5. If live source conflicts with a bundled reference, prefer the live source and say what changed.
+6. Cite the exact GitHub or docs.chain.link source used for freshness-sensitive answers.
 
 ## Repository
 
 - Main repository: `https://github.com/smartcontractkit/chainlink-ace`
 - Raw base: `https://raw.githubusercontent.com/smartcontractkit/chainlink-ace/main/`
+
+## ACE Product Docs
+
+| Topic | URL |
+| --- | --- |
+| ACE overview | `https://docs.chain.link/ace` |
+| Beta scope | `https://docs.chain.link/ace/beta-scope` |
+| Supported networks | `https://docs.chain.link/ace/supported-networks` |
+| Release notes | `https://docs.chain.link/ace/release-notes` |
+| Architecture | `https://docs.chain.link/ace/concepts/architecture` |
+| Reporting | `https://docs.chain.link/ace/concepts/reporting` |
+| Coordinator API | `https://docs.chain.link/ace/reference/api/coordinator` |
+| Reporting API | `https://docs.chain.link/ace/reference/api/reporting` |
+| SecureMintPolicy | `https://docs.chain.link/ace/reference/policy-library/secure-mint-policy` |
 
 ## Top-Level Docs
 
@@ -69,9 +84,12 @@ Use this file when an answer depends on current ACE repository facts, source cod
 ## Practical Selection Rules
 
 1. For repository overview and where to start, fetch the main README.
-2. For new integrations, fetch the Getting Started guide and relevant package README.
+2. For new OSS integrations, fetch the Getting Started guide and relevant package README.
 3. For existing upgradeable contracts, fetch the Upgrade Guide.
-4. For policy behavior, fetch `packages/policy-management/src/policies/README.md`.
+4. For policy behavior, fetch `packages/policy-management/src/policies/README.md` or the docs.chain.link policy page if the prompt is product-scoped.
 5. For exact signatures, fetch the relevant Solidity interface/source file.
-6. For identity and credentials, fetch Cross-Chain Identity package docs.
+6. For identity and credentials, fetch Cross-Chain Identity package docs for OSS behavior and Beta Scope for managed-platform credential limitations.
 7. For production licensing, fetch `LICENSE` and tell the user to contact Chainlink and consult counsel.
+8. For ACE Platform/Beta/mainnet/supported network questions, fetch Beta Scope and Supported Networks.
+9. For auditor/reporting questions, fetch Reporting and Reporting API.
+10. For Coordinator vs Reporting API questions, fetch both API pages and distinguish write/control-plane operations from read-only evidence queries.
