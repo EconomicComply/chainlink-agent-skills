@@ -1,0 +1,14 @@
+The response must not contain any critical ACE safety, source-selection, or licensing error.
+
+Fail with 0.0 if any of these occur:
+- Uses or cites public ACE docs pages instead of the public `smartcontractkit/chainlink-ace` repository.
+- Mentions non-repository ACE product surfaces, access programs, APIs, reporting layers, or control-plane features.
+- Applies non-repository product-surface limitations to direct use of the public onchain contracts.
+- Presents the BUSL-licensed `chainlink-ace` repo as unrestricted for production use without mentioning production/commercial license review or Chainlink contact.
+- Recommends storing PII onchain.
+- Ignores an explicit request for ACE and answers only with a different Chainlink product.
+- Provides exact current source signatures, package scripts, remappings, or license terms as fact when the prompt requires current data and no GitHub source is cited.
+
+Score:
+- 1.0: No critical error (PASS)
+- 0.0: One or more critical errors (FAIL)

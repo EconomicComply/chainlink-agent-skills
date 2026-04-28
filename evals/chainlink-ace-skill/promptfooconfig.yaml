@@ -1,0 +1,198 @@
+description: Chainlink ACE Skill Evaluation
+
+prompts:
+  - file://prompts/baseline.js
+  - file://prompts/with-skill.js
+
+providers:
+  - id: "anthropic:messages:${PROMPTFOO_BASELINE_PROVIDER:-claude-sonnet-4-20250514}"
+    label: baseline
+    config:
+      temperature: 0
+      max_tokens: 4096
+  - id: "anthropic:messages:${PROMPTFOO_WITH_SKILL_PROVIDER:-claude-sonnet-4-20250514}"
+    label: with-skill
+    config:
+      temperature: 0
+      max_tokens: 4096
+
+commandLineOptions:
+  maxConcurrency: 2
+
+defaultTest:
+  options:
+    provider: "${PROMPTFOO_GRADER_PROVIDER:-openai:gpt-5-mini}"
+  assert:
+    - type: llm-rubric
+      value: file://rubrics/must-pass.txt
+
+trigger_positive_asserts: &trigger_positive_asserts
+  - type: llm-rubric
+    value: file://rubrics/triggering-positive.txt
+
+trigger_negative_asserts: &trigger_negative_asserts
+  - type: llm-rubric
+    value: file://rubrics/triggering-negative.txt
+
+functional_asserts: &functional_asserts
+  - type: llm-rubric
+    value: file://rubrics/correctness.txt
+  - type: llm-rubric
+    value: file://rubrics/completeness.txt
+  - type: llm-rubric
+    value: file://rubrics/safety.txt
+  - type: llm-rubric
+    value: file://rubrics/freshness.txt
+  - type: llm-rubric
+    value: file://rubrics/clarification.txt
+
+tests:
+  - vars:
+      case_file: cases/functional/repo-scope-01.txt
+      workflow: repo-scope
+      requires_live_source: "no"
+    metadata:
+      workflow: repo-scope
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/onchain-contracts-01.txt
+      workflow: onchain-contracts
+      requires_live_source: "no"
+    metadata:
+      workflow: onchain-contracts
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/upgrade-01.txt
+      workflow: upgrade
+      requires_live_source: "no"
+    metadata:
+      workflow: upgrade
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/policy-chain-01.txt
+      workflow: policy-management
+      requires_live_source: "no"
+    metadata:
+      workflow: policy-management
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/cross-chain-identity-01.txt
+      workflow: cross-chain-identity
+      requires_live_source: "no"
+    metadata:
+      workflow: cross-chain-identity
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/secure-mint-01.txt
+      workflow: policy-library
+      requires_live_source: "yes"
+    metadata:
+      workflow: policy-library
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/token-examples-01.txt
+      workflow: token-examples
+      requires_live_source: "no"
+    metadata:
+      workflow: token-examples
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/trigger-positive/ace-overview-01.txt
+      workflow: repo-scope
+      expected_trigger: "yes"
+    metadata:
+      workflow: repo-scope
+      category: trigger-positive
+      smoke: true
+    assert: *trigger_positive_asserts
+
+  - vars:
+      case_file: cases/trigger-positive/policy-engine-01.txt
+      workflow: policy-management
+      expected_trigger: "yes"
+    metadata:
+      workflow: policy-management
+      category: trigger-positive
+      smoke: true
+    assert: *trigger_positive_asserts
+
+  - vars:
+      case_file: cases/trigger-positive/ccid-01.txt
+      workflow: cross-chain-identity
+      expected_trigger: "yes"
+    metadata:
+      workflow: cross-chain-identity
+      category: trigger-positive
+      smoke: true
+    assert: *trigger_positive_asserts
+
+  - vars:
+      case_file: cases/trigger-positive/chainlink-ace-repo-01.txt
+      workflow: onchain-contracts
+      expected_trigger: "yes"
+    metadata:
+      workflow: onchain-contracts
+      category: trigger-positive
+      smoke: true
+    assert: *trigger_positive_asserts
+
+  - vars:
+      case_file: cases/trigger-negative/ccip-01.txt
+      workflow: none
+      expected_trigger: "no"
+    metadata:
+      workflow: none
+      category: trigger-negative
+      smoke: true
+    assert: *trigger_negative_asserts
+
+  - vars:
+      case_file: cases/trigger-negative/cre-01.txt
+      workflow: none
+      expected_trigger: "no"
+    metadata:
+      workflow: none
+      category: trigger-negative
+      smoke: true
+    assert: *trigger_negative_asserts
+
+  - vars:
+      case_file: cases/trigger-negative/data-feeds-01.txt
+      workflow: none
+      expected_trigger: "no"
+    metadata:
+      workflow: none
+      category: trigger-negative
+      smoke: true
+    assert: *trigger_negative_asserts
+
+  - vars:
+      case_file: cases/trigger-negative/generic-solidity-01.txt
+      workflow: none
+      expected_trigger: "no"
+    metadata:
+      workflow: none
+      category: trigger-negative
+      smoke: true
+    assert: *trigger_negative_asserts

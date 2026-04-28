@@ -1,0 +1,1 @@
+I have an existing upgradeable ERC-20 proxy and want to add ACE policy checks. Explain the recommended upgrade approach from the chainlink-ace repo, including PolicyProtectedUpgradeable, migrateToACE, storage safety, and policy setup.

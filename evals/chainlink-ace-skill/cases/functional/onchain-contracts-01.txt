@@ -1,0 +1,1 @@
+I want to start from https://github.com/smartcontractkit/chainlink-ace and self-deploy ACE contracts for a custom vault on an EVM mainnet. Can I write a custom extractor and custom policy, and what should I know about licensing and security review?

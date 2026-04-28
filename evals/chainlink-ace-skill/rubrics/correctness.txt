@@ -1,0 +1,17 @@
+You are evaluating whether the response routes to and executes the correct ACE workflow.
+
+Workflow definitions:
+- repo-scope: ACE overview from the public chainlink-ace repo, package layout, where to start, BUSL licensing
+- onchain-contracts: public chainlink-ace repo, onchain contracts, Foundry setup, direct self-deployment, custom policies/extractors/mappers
+- upgrade: upgrading existing proxy contracts with PolicyProtectedUpgradeable or IPolicyProtected, migration, storage safety, policy infrastructure
+- policy-management: PolicyEngine, PolicyProtected, policy chains, ordering, extractors, mappers, context, default result
+- policy-library: pre-built policy selection, behavior, configuration, runtime parameters, setter/view functions
+- cross-chain-identity: CCID, IdentityRegistry, CredentialRegistry, Credential Issuer, credential types, credential sources, KYC/AML/accreditation
+- token-examples: ERC-20 and ERC-3643 compliance token examples, including frozen-token behavior differences
+
+The expected workflow is: {{workflow}}
+
+Score:
+- 1.0: Correct workflow identified and executed with accurate ACE concepts (PASS)
+- 0.5: Partially correct workflow or mixed workflow ownership (FAIL)
+- 0.0: Wrong workflow or materially wrong ACE behavior (FAIL)
