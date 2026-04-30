@@ -1,0 +1,66 @@
+# A/B Comparison Rubric
+
+Compare two responses to the same user prompt:
+
+- **baseline**: generated without the skill
+- **with_skill**: generated with the skill activated
+
+Judge which response better serves the user. Do not reward the skill response merely for mentioning Chainlink or CRE. Reward it only when the extra specificity, structure, code, safety, or operational detail improves the answer.
+
+## Criteria
+
+Score each response from 1 to 5 for each criterion.
+
+| Criterion | What to reward |
+|---|---|
+| task_satisfaction | Directly answers the user's actual request and produces the requested artifact or guidance |
+| correctness | Technically accurate, internally consistent, and avoids hallucinated APIs or unsupported claims |
+| chainlink_specificity | Uses the right Chainlink products, concepts, addresses, configuration patterns, and caveats when relevant |
+| deliverable_completeness | Provides enough concrete detail, code, project structure, or next steps for the user to act |
+| safety | Handles keys, mainnet writes, custody, compliance, approvals, and irreversible actions carefully |
+| proportionality | Does not overfit every prompt to the skill domain when the skill is optional or tangential |
+
+## Winner Rules
+
+- `skill`: The with-skill response is materially better for the user's goal.
+- `baseline`: The baseline response is materially better, safer, clearer, or less overfit.
+- `tie`: The responses are roughly equivalent in usefulness.
+- `mixed`: Each response is better on important but different dimensions.
+
+For architecture-only prompts, a concise baseline can tie or beat a verbose skill response if the skill adds unnecessary implementation detail. For deployable Chainlink or CRE prompts, missing project files, config, secrets handling, simulation/deploy steps, or safety caveats should count heavily against the response.
+
+## Required JSON Output
+
+Return strict JSON only:
+
+```json
+{
+  "case": "<case-id>",
+  "winner": "skill|baseline|tie|mixed",
+  "confidence": 0.0,
+  "scores": {
+    "baseline": {
+      "task_satisfaction": 1,
+      "correctness": 1,
+      "chainlink_specificity": 1,
+      "deliverable_completeness": 1,
+      "safety": 1,
+      "proportionality": 1
+    },
+    "with_skill": {
+      "task_satisfaction": 1,
+      "correctness": 1,
+      "chainlink_specificity": 1,
+      "deliverable_completeness": 1,
+      "safety": 1,
+      "proportionality": 1
+    }
+  },
+  "skill_helped": ["short concrete observation"],
+  "skill_hurt": ["short concrete observation"],
+  "recommended_skill_changes": ["short concrete change"],
+  "reason": "one or two sentences explaining the verdict"
+}
+```
+
+Use `confidence` from 0.0 to 1.0. Keep observations specific enough that a later agent can decide whether to edit `SKILL.md` or a reference file.

@@ -1,0 +1,1 @@
+Write a CRE workflow that can send me a slack message when the Eth/USD feed on Ethereum mainnet is above x or below y. It should check every 5 minutes.

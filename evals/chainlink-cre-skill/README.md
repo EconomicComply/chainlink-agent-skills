@@ -10,6 +10,14 @@ npx promptfoo eval
 npx promptfoo view
 ```
 
+For no-API baseline-vs-skill testing in Cursor, Codex, Gemini CLI, or similar agents:
+
+```text
+Run an agent A/B test for chainlink-cre-skill using mixed-chainlink
+```
+
+The `mixed-chainlink` scenario set lives in `ab-scenarios/mixed-chainlink/` and is designed to test where the CRE skill helps, ties, or risks overfitting broad Chainlink architecture prompts.
+
 ## Environment Variables
 
 | Variable | Default | Description |

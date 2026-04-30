@@ -2,6 +2,8 @@
 
 This runbook drives an autonomous improvement loop for a skill. An agent modifies the skill's instructions and references, runs evals, keeps improvements, reverts regressions, and loops indefinitely until stopped. Inspired by [karpathy/autoresearch](https://github.com/karpathy/autoresearch).
 
+When API keys are unavailable, prefer the agent A/B protocol in `evals/run-agent-ab-test.md` when the objective is "make the skill better than baseline." Use `evals/run-agent-eval.md` when the objective is only "does the skill-enabled path pass its rubrics?"
+
 ## Quick Start
 
 Ask the agent:
@@ -44,6 +46,7 @@ echo "${ANTHROPIC_API_KEY:+set}" "${OPENAI_API_KEY:+set}"
 ```
 
 - If both print `set`: use **promptfoo** for evals (faster, ~2-3 min per iteration).
+- Otherwise, if the user asked for A/B comparison, baseline comparison, or no-API skill improvement: use **agent A/B** via `evals/run-agent-ab-test.md`.
 - Otherwise: use **agent-powered** smoke evals via `evals/run-agent-eval.md` (slower, ~5-8 min per iteration).
 
 ### Step 5: Run baseline eval
@@ -62,6 +65,15 @@ Then extract the composite score (see Composite Metric below).
 **Agent path:**
 Follow `evals/run-agent-eval.md` for the skill, smoke tier. Record the pass rate from the summary table.
 
+**Agent A/B path:**
+Follow `evals/run-agent-ab-test.md` for the skill. Use the requested scenario set if provided; otherwise use promptfoo smoke cases. Record:
+
+- skill wins
+- baseline wins
+- ties/mixed
+- average score delta
+- recommended skill changes from the generated summary
+
 ### Step 6: Initialize results.tsv
 
 Create `results.tsv` (tab-separated) in the repo root with the header and baseline row:
@@ -70,6 +82,15 @@ Create `results.tsv` (tab-separated) in the repo root with the header and baseli
 commit	score	pass_rate	status	description
 a1b2c3d	0.850	17/20	keep	baseline
 ```
+
+For agent A/B runs, use the same columns and put the primary A/B metric in `score`:
+
+```text
+commit	score	pass_rate	status	description
+a1b2c3d	0.625	5/8	keep	baseline-ab mixed-chainlink, baseline_wins=0 ties_or_mixed=3
+```
+
+The A/B score is `skill wins / total cases`. Include baseline wins and ties/mixed in the description.
 
 Do NOT commit this file. Keep it untracked by git.
 
@@ -127,7 +148,7 @@ git add <skill>/
 git commit -m "<short description of change>"
 ```
 
-**5. Run smoke eval.**
+**5. Run eval.**
 
 Promptfoo path:
 ```
@@ -138,6 +159,8 @@ npx promptfoo export -o results.json
 
 Agent path: follow `evals/run-agent-eval.md`, smoke tier.
 
+Agent A/B path: follow `evals/run-agent-ab-test.md` using the same scenario set or smoke subset used for the baseline.
+
 **6. Extract the composite score.** Parse the eval output to get the pass rate and composite score.
 
 **7. Compare to the previous best.**
@@ -145,6 +168,7 @@ Agent path: follow `evals/run-agent-eval.md`, smoke tier.
 - **Improved**: Keep the commit. Record `keep` in results.tsv.
 - **Equal (Pareto improvement)**: Keep the commit. Record `keep` in results.tsv.
 - **Equal (no Pareto improvement) or worse**: Revert. Run `git reset --hard HEAD~1`. Record `discard` in results.tsv.
+- **Agent A/B regression**: Revert if baseline wins increase, skill wins decrease, or the skill response becomes less safe/proportional on any case that previously tied or won.
 - **Eval crashed**: Run `tail -50 run.log` to diagnose. If it is a simple fix (typo, syntax), fix and re-run. If the idea is fundamentally broken, revert and record `crash` in results.tsv.
 
 **8. Log the result.** Append a row to `results.tsv`:

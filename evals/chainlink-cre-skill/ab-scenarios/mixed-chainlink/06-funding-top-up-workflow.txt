@@ -1,0 +1,1 @@
+I need you to write a workflow that can check the funding balance on a number of contracts, configurable, and then based on some threshold, configurable per contract, top them up with funding from a contract that I have access to. The workflow should be deployable in CRE.

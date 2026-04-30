@@ -1,6 +1,6 @@
 # Agent-Powered Eval Protocol
 
-This runbook lets you run skill evals entirely through Cursor subagents, with no external API keys required.
+This runbook lets you run skill evals entirely through agent subagents, with no external API keys required. It works best in hosts such as Cursor, Codex, Gemini CLI, or any agent shell that can delegate isolated generation and grading work.
 
 ## Quick Start
 
@@ -10,7 +10,7 @@ Ask the agent:
 Run agent evals for chainlink-ccip-skill
 ```
 
-This runs the **smoke** tier by default (~20 cases across both skills). For the full suite:
+This runs the **smoke** tier by default. For the full suite:
 
 ```
 Run agent evals for chainlink-ccip-skill, full suite
@@ -34,10 +34,10 @@ The smoke tier includes 1 representative case per workflow per category, plus a 
 
 ## How It Works
 
-The agent reads this protocol and executes it. The flow uses cross-model grading to avoid self-evaluation bias:
+The agent reads this protocol and executes it. The flow uses isolated grading to reduce self-evaluation bias:
 
 1. **Generate** (default/parent model): A subagent reads the skill's `SKILL.md` as system context + an eval case as the user prompt, then produces a response.
-2. **Grade** (fast model): A separate subagent grades a **batch** of responses against applicable rubrics. Using a different model for grading provides an independent evaluation.
+2. **Grade** (fast model when available): A separate subagent grades a **batch** of responses against applicable rubrics. Using a different model for grading is helpful, but isolation from the generator is the important part.
 3. **Report**: Results are collected into a summary table.
 
 ## Protocol (for the agent)
@@ -83,7 +83,7 @@ For each case file, launch a subagent that:
 3. Generates a response as if it were an agent with that skill activated.
 4. Returns the full response text.
 
-Use `subagent_type="generalPurpose"` with **no `model` parameter** for generation. This evaluates the skill instructions against the user's primary selected model, reflecting real-world performance.
+Use the host's default general-purpose subagent with no explicit model override for generation when possible. This evaluates the skill instructions against the user's primary selected model, reflecting real-world performance.
 
 ### Step 5: Grade responses in batches (fast model)
 
@@ -97,7 +97,7 @@ Group completed responses by category (since cases in the same category share ru
    - **reason**: A one-sentence explanation.
 4. Returns structured results as a JSON array, one entry per case, each containing per-rubric results.
 
-Use `subagent_type="generalPurpose"` with `model="composer-2-fast"` for grading. This keeps the evaluation quick and cost-effective since grading against a rubric is a simpler task. This cross-model setup also provides independent evaluation without self-bias.
+Use a fast grader model when the host exposes one; otherwise use a fresh isolated grading subagent. This keeps the evaluation quick when possible and avoids grading in the same context that generated the answer.
 
 ### Step 6: Run deterministic guards (CCIP only)
 
@@ -144,6 +144,6 @@ This mirrors the promptfoo setup where Anthropic generates and OpenAI grades. Th
 ## Differences from Promptfoo
 
 - **Models**: Generation uses the parent conversation's model; grading uses a fast model. Promptfoo uses specific model versions (Claude Sonnet 4 + GPT-5 mini).
-- **No baseline comparison**: Promptfoo runs both a baseline (no skill) and with-skill provider. Agent evals only run the with-skill path.
+- **No baseline comparison**: Promptfoo runs both a baseline (no skill) and with-skill provider. This runbook only runs the with-skill path. Use `evals/run-agent-ab-test.md` for no-API baseline-vs-skill comparisons.
 - **No persistent storage**: Results are displayed in chat, not stored in a database. Copy the summary table to a file manually if you want to track over time.
 - **Rubric variable interpolation**: Some rubrics use `{{workflow}}` placeholders. The grading subagent should substitute the workflow value from the case metadata.

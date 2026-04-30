@@ -16,6 +16,10 @@ build/
 npm-debug.log*
 pnpm-debug.log*
 
+# Local eval artifacts
+results.tsv
+evals/runs/
+
 # OS
 .DS_Store
 Thumbs.db

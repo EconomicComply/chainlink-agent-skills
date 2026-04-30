@@ -1,0 +1,1 @@
+I want to create my own onchain prediction market. I need you to help me write the smart contracts and the backend that will be responsible for starting and resolving markets. Prediction market needs to be basic 15 minute up down markets, on crypto and RWA assets like FX, Equities, Commodities. I need reliable data feeds that are verifiable for the market.

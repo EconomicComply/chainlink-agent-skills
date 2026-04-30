@@ -1,0 +1,1 @@
+I want to build an application that can monitor onchain prices in pools and the liquidity depth and compare it to offchain exchange prices and depth, in order to signal me when possible arbitrage opportunities exist. Later I want the app to then recommend what steps I should take to execute the arbitrage. I possibly also want the app to exploit the arbitrage for me.
