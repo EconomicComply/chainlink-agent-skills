@@ -1,0 +1,76 @@
+database:
+  path: .skillbench/evals.db
+workspace: .
+iterations: 1
+
+harnesses:
+  cursor:
+    models:
+      - composer-2
+  codex:
+    models:
+      - gpt-5.4-mini
+  gemini:
+    models:
+      - gemini-3-flash-preview
+
+skills:
+  - id: chainlink-cre-skill
+    path: chainlink-cre-skill
+    test_cases:
+      - prompt: "How do I install the CRE CLI and initialize a new project? I want to use TypeScript."
+      - prompt: "How do I set up CRE triggers including CRON, HTTP, and EVM log triggers?"
+      - prompt: "Write a TypeScript workflow that reads from an EVM chain and computes a consensus value via HTTP."
+      - prompt: "How do I simulate a CRE workflow before deployment?"
+      - prompt: "Explain how CRE handles secrets management and confidential HTTP requests."
+      - prompt: "Create a Go workflow with HTTP capabilities and show me the simulation workflow."
+      - prompt: "How do I deploy a workflow to a testnet and monitor its execution?"
+      - prompt: "What is the difference between deterministic and non-deterministic code in CRE workflows?"
+
+  - id: chainlink-ccip-skill
+    path: chainlink-ccip-skill
+    test_cases:
+      - prompt: "Are Ethereum Sepolia and Base Sepolia connected by CCIP?"
+      - prompt: "Write a Solidity contract that reads the Chainlink CCIP router and discovers supported tokens."
+      - prompt: "Create a minimal CCIP sender and receiver in Solidity for arbitrary messaging on testnet, with secure defaults."
+      - prompt: "How do I check the status of a CCIP message after sending it?"
+      - prompt: "What tokens are currently supported for cross-chain transfers via CCIP?"
+      - prompt: "How do I set up a custom cross-chain token transfer between Ethereum and Arbitrum?"
+      - prompt: "Explain CCIP lane configuration and how to check if a route is connected."
+      - prompt: "How do I create and register a Chainlink Cross-Chain Token (CCT) for cross-chain compatibility?"
+
+  - id: chainlink-data-feeds-skill
+    path: chainlink-data-feeds-skill
+    test_cases:
+      - prompt: "Write a Solidity contract that reads the ETH/USD price from a Chainlink price feed on Ethereum Sepolia. Include proper validation and tell me what address to use."
+      - prompt: "How do I read Chainlink Data Feeds off-chain using a TypeScript application?"
+      - prompt: "What is the difference between Single-Variable Response (SVR) feeds and Multi-Variable Response (MVR) feeds?"
+      - prompt: "How do I integrate Chainlink price feeds on Solana instead of EVM?"
+      - prompt: "What feed types does Chainlink offer beyond price feeds?"
+      - prompt: "How do I check if a price feed is stale or has not updated for a given time threshold?"
+      - prompt: "What is the L2 Sequencer Uptime Feed and when should I use it?"
+      - prompt: "How do I monitor historical price data from Chainlink feeds?"
+
+  - id: chainlink-data-streams-skill
+    path: chainlink-data-streams-skill
+    test_cases:
+      - prompt: "Build a Chainlink Data Streams WebSocket streamer with High Availability mode turned on. I care about reconnects, duplicate reports, and missing report gaps."
+      - prompt: "How do I get access to Chainlink Data Streams and what authentication credentials do I need?"
+      - prompt: "Write TypeScript code to fetch the latest report from Chainlink Data Streams via REST."
+      - prompt: "Create a Solidity contract that verifies a Chainlink Data Streams v3 report onchain and stores the latest price."
+      - prompt: "What report schema versions does Chainlink Data Streams support and how do I decode them?"
+      - prompt: "How do I stream Data Streams reports to a frontend in real-time with local persistence?"
+      - prompt: "What is the difference between REST and WebSocket access patterns for Data Streams?"
+      - prompt: "How do I handle reconnection logic and missing reports in a Data Streams WebSocket consumer?"
+
+  - id: chainlink-ace-skill
+    path: chainlink-ace-skill
+    test_cases:
+      - prompt: "What is Chainlink Automated Compliance Engine based on the smartcontractkit/chainlink-ace repo, and who is it for?"
+      - prompt: "How do I deploy the PolicyEngine contract from chainlink-ace and set up a custom compliance policy?"
+      - prompt: "Explain the difference between the managed ACE Platform and the self-deployed open-source chainlink-ace repository."
+      - prompt: "What are Cross-Chain Identity (CCID) credentials and how do I register them in ACE?"
+      - prompt: "In ACE Platform Beta, can I inspect arbitrary credentialData with a custom Credential Data Validator, or is the managed product limited to attestations? Also explain how that differs from the OSS Cross-Chain Identity contracts."
+      - prompt: "How do I set up KYC/AML credentials with ACE for regulated token transfers?"
+      - prompt: "What is a policy chain in ACE and how do I order multiple policies?"
+      - prompt: "How do I create an ERC-3643 compliant token with ACE enforcement?"

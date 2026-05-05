@@ -19,6 +19,7 @@ pnpm-debug.log*
 # Local eval artifacts
 results.tsv
 evals/runs/
+.skillbench/
 
 # OS
 .DS_Store
