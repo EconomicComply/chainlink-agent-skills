@@ -71,6 +71,26 @@ tests:
       requires_live_source: "no"
     assert: *functional_asserts
 
+  - vars:
+      case_file: cases/functional/workflow-generation-04.txt
+      workflow: workflow-generation
+      requires_live_source: "no"
+    metadata:
+      workflow: workflow-generation
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
+  - vars:
+      case_file: cases/functional/workflow-generation-05.txt
+      workflow: workflow-generation
+      requires_live_source: "no"
+    metadata:
+      workflow: workflow-generation
+      category: functional
+      smoke: true
+    assert: *functional_asserts
+
   # ── Functional: Project Scaffolding ──────────────────────────────────
   - vars:
       case_file: cases/functional/project-scaffolding-01.txt
@@ -278,4 +298,14 @@ tests:
       case_file: cases/trigger-negative/generic-solidity-01.txt
       workflow: none
       expected_trigger: "no"
+    assert: *trigger_negative_asserts
+
+  - vars:
+      case_file: cases/trigger-negative/neutral-monitoring-agent-01.txt
+      workflow: none
+      expected_trigger: "no"
+    metadata:
+      workflow: none
+      category: trigger-negative
+      smoke: true
     assert: *trigger_negative_asserts

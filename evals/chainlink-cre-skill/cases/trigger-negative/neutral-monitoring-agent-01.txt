@@ -1,0 +1,1 @@
+I want to create a monitoring agent that compares an onchain data source to a real-world data source and sends a notification when the difference crosses a configurable threshold. In future I may investigate automated execution, but for now create the monitoring agent.

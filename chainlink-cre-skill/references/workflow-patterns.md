@@ -142,6 +142,17 @@ secretsNames:
 
 The key (`MY_API_KEY`) is the secret name used in code. The value (`MY_API_KEY_VAR`) is the environment variable that provides the actual secret value.
 
+### Known Issue: Secret Name / Env Var Substring Conflict
+
+CRE CLI v1.1.0 can fail secret resolution with "secret not found" if the env var name in `secrets.yaml` is a substring or prefix of the secret name. For example, secret name `GEMINI_API_KEY_SECRET` with env var `GEMINI_API_KEY` can fail because `GEMINI_API_KEY` is a prefix of `GEMINI_API_KEY_SECRET`.
+
+Workaround: ensure the env var name is not a substring or prefix of the secret name. Use a suffix like `_VAR` on the env var:
+
+```yaml
+secretsNames:
+  GEMINI_API_KEY_SECRET: "GEMINI_API_KEY_VAR"
+```
+
 ## Secrets Management
 
 ### In Simulation
@@ -300,6 +311,31 @@ if err != nil {
 Execution is single-threaded. `.Await()` drives the event loop forward until the result is available.
 
 ## Best Practices
+
+### Workflow Generation Checklist
+
+Use this checklist when generating or scaffolding a workflow, not for simple explanations.
+
+1. Default to TypeScript when the user gives no language preference, unless the repo or prompt strongly indicates Go.
+2. Read project-scaffolding.md before creating a new project. Prefer `cre init --non-interactive --project-name <name> --template <template>` and fall back to manual templates only if needed.
+3. For HTTP requests, choose regular HTTP by default. Ask about Confidential HTTP when the user needs privacy-preserving requests, secret injection via `{{.secretName}}`, or enclave execution.
+4. If multiple triggers share config, secrets, or consumer contracts, put them in one workflow with multiple handlers.
+5. Generate the complete project shape from the embedded references. Mark specific missing live values inline, such as `// NEED: exact chain selector name`, instead of inventing them.
+6. Include a verification path: `cre workflow simulate`, a local run command, unit tests, or a dry-run mode.
+7. Read simulation.md before writing simulation commands. Include `--target`; include `--non-interactive --trigger-index` and trigger payload flags when the run must not prompt.
+
+### Generated Code Self-Check
+
+Before finishing generated workflow code:
+
+- Confirm requirement-bearing values match across code, config, README, tests, and simulation examples.
+- Use explicit units in config names, such as `thresholdBps`, `amountWei`, `decimals`, `intervalSeconds`, or `chainSelectorName`.
+- Keep secrets as references. Do not include real credentials, private keys, bearer tokens, webhook URLs, or API keys.
+- Use scaled integers or decimal strings for business-critical comparisons.
+- Convert `bigint` values to strings before `JSON.stringify` when returning or logging structured objects.
+- Include a minimal consumer contract, ABI, interface, mock, adapter, or clear integration boundary when the workflow writes reports or calls an external system.
+- Preserve the user's resource and action model; do not silently replace native balance checks, contract-specific balances, bridge paths, assets, chains, or execution modes with a narrower example.
+- Run or provide the smallest honest verification command. If an error occurs, fetch only the specific missing doc needed to fix it.
 
 ### One Workflow, Multiple Handlers
 

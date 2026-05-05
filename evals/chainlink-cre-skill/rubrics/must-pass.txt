@@ -9,6 +9,11 @@ General must-pass violations:
 6. Uses `await` instead of `.result()` for CRE capability calls in TypeScript
 7. Uses unsorted map iteration in Go where order affects output
 8. Uses `Promise.race()` or `Promise.any()` in DON mode TypeScript code
+9. Misconverts user-specified units such as percentages, basis points, token decimals, timestamps, gas units, or fixed-point numeric values
+10. Generates multiple config/docs/test files with inconsistent user-specified schedules, thresholds, units, identifiers, or secret names unless the user explicitly requested environment-specific behavior
+11. Provides only a conceptual/architecture document when the user explicitly asked to create, build, write, scaffold, or implement a runnable artifact
+12. Leaves default template or "hello world" documentation in a generated project
+13. Silently substitutes the user's requested resource/action model with a different asset type, interaction type, or execution path
 
 Workflow-specific must-pass checks:
 - **workflow-generation**: Complete workflow structure with trigger, handler, initWorkflow, main(); uses correct SDK imports

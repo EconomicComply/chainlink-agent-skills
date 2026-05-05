@@ -95,3 +95,16 @@ CRE is evolving rapidly. When a user reports that information seems outdated or 
 3. Compare with the embedded reference content
 4. Update guidance based on the latest official content
 5. Note any discrepancies to the user
+
+## Live Values Policy
+
+Use official sources for values that may change or are easy to misremember:
+
+- supported networks
+- chain selector names or numeric selectors
+- forwarder addresses
+- feed proxy addresses
+- CLI flags introduced in recent releases
+- SDK API signatures from source or generated docs
+
+When including one of these values in an answer or generated artifact, cite the official source if available. If live verification is not possible, mark the value as `NEED: verify against official Chainlink docs before deployment` rather than presenting it as current fact.

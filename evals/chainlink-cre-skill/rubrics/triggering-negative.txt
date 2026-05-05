@@ -3,7 +3,7 @@ You are evaluating whether the response avoids over-triggering into the CRE skil
 A negative-trigger response should:
 - Not show CRE-specific workflow behavior for the tested category
 - May answer generically, redirect, or use a different Chainlink product skill
-- Should not exhibit CRE workflow patterns (handler, initWorkflow, Runner), CRE SDK imports, or CRE CLI commands when the request is about a different Chainlink product (CCIP, Data Feeds, VRF, Automation, Functions)
+- Should not exhibit CRE workflow patterns (handler, initWorkflow, Runner), CRE SDK imports, or CRE CLI commands when the request is about a different Chainlink product (CCIP, Data Feeds, VRF, Automation, Functions) or a neutral product/backend/agent prompt that does not mention CRE, Chainlink workflows, DON/decentralized execution, or Chainlink automation
 
 Score:
 - 1.0: Correctly avoids over-triggering into CRE (PASS)

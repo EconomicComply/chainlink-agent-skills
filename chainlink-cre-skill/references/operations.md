@@ -43,6 +43,8 @@ Always include `--target`. For `cre workflow simulate` only, the CLI can also pr
 4. **Funded wallet**: Wallet needs ETH on the target chain for gas fees
 5. **Secrets uploaded**: If the workflow uses secrets, run `cre secrets create` first
 
+Deployment and workflow management are testnet-only for agent execution. Refuse mainnet deployment, activation, update, pause, delete, and secrets operations.
+
 ### Deploy Command
 
 ```bash
@@ -52,8 +54,48 @@ cre workflow deploy <workflow-dir> --target <target-name>
 Example:
 
 ```bash
-cre workflow deploy my-workflow --target production-settings
+cre workflow deploy my-workflow --target staging-settings
 ```
+
+Always include `--target` on lifecycle commands:
+
+```bash
+cre workflow deploy <workflow-dir> --target <target-name>
+cre workflow activate <workflow-dir> --target <target-name>
+cre workflow update <workflow-dir> --target <target-name>
+cre workflow pause <workflow-dir> --target <target-name>
+cre workflow delete <workflow-dir> --target <target-name>
+cre secrets create <workflow-dir> --target <target-name>
+```
+
+## Approval Protocol
+
+Before any deployment, activation, update, pause, deletion, or secrets upload/delete operation, present a preflight summary:
+
+```text
+Proposed workflow operation:
+- Action: deploy / activate / update / pause / delete / upload secrets / delete secrets
+- Network type: testnet
+- Target: <target name from workflow.yaml>
+- Chain(s): <chain selector name(s) involved>
+- Workflow name: <workflow name>
+- Secrets: <yes/no, list secret names if yes>
+- Consumer contract: <address if applicable>
+- Expected effect: <what will happen>
+
+Do you want me to execute this?
+```
+
+End the preflight with a direct approval question.
+
+Require a second explicit confirmation immediately before executing any testnet action that:
+
+1. deploys a workflow (`cre workflow deploy`)
+2. activates a workflow (`cre workflow activate`)
+3. deletes a workflow (`cre workflow delete`)
+4. uploads or deletes secrets (`cre secrets create`, `cre secrets delete`)
+
+Do not treat the user's original intent as the second confirmation. Ask again right before the side-effecting command.
 
 ### What Deployment Does
 

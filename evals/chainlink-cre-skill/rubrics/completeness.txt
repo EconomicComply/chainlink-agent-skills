@@ -6,6 +6,10 @@ Check:
 3. Does it avoid including irrelevant content from other workflows?
 4. Does it generate code only when code is actually needed?
 5. Is the explanation proportional — not too terse, not a full tutorial for a simple question?
+6. If the user asks to create, build, write, scaffold, or implement a runnable artifact, does it provide executable code or a concrete project scaffold instead of only a conceptual design document?
+7. If the implementation depends on another contract, API, service, operator action, or adapter, does it include the minimal interface, mock, implementation, or integration boundary needed for the artifact to be coherent?
+8. Does it include project-specific run, test, simulate, or dry-run instructions instead of leaving template documentation?
+9. Does it preserve the user's requested resource/action model rather than silently substituting a different asset type, interaction type, or execution path?
 
 Score:
 - 1.0: Complete, useful, and appropriately scoped (PASS)

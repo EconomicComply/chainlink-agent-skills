@@ -257,6 +257,20 @@ const result = httpClient
   .result()
 ```
 
+## Webhooks And Alert Delivery
+
+For production alerts, prefer posting to a user-owned relay service instead of calling Slack, Discord, or another webhook directly from each DON node. The relay should deduplicate alerts by a stable key, enforce rate limits, and hold the real webhook URL outside workflow config.
+
+Use direct webhooks only for simulation, prototypes, or controlled tests, and keep the webhook URL in secrets rather than config or README examples.
+
+Recommended alert flow:
+
+1. Workflow evaluates the condition using scaled values.
+2. Workflow sends a signed or authenticated alert payload to a relay endpoint.
+3. Relay deduplicates by fields such as `workflowId`, `condition`, `roundId`, and `bucketTimestamp`.
+4. Relay posts to Slack or another destination once.
+5. Relay returns a small status object for consensus aggregation.
+
 ## Submitting Reports via HTTP
 
 Instead of writing reports onchain, you can submit them to an external HTTP endpoint:
