@@ -5,7 +5,7 @@ module.exports = function ({ vars }) {
   const caseFile = vars.case_file;
   const content = fs.readFileSync(path.resolve(__dirname, "..", caseFile), "utf8").trim();
 
-  const skillPath = path.resolve(__dirname, "../../chainlink-data-feeds-skill/SKILL.md");
+  const skillPath = path.resolve(__dirname, "..", "..", "..", "chainlink-data-feeds-skill", "SKILL.md");
   const skillContent = fs.readFileSync(skillPath, "utf8").trim();
 
   return [
