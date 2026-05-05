@@ -1,0 +1,1 @@
+How do I get a verifiable random number in my smart contract on Polygon? I want to use it for a fair NFT mint where each token gets a random trait.

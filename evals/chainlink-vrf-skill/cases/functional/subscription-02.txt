@@ -1,0 +1,1 @@
+I have a VRF v2.5 subscription consumer contract. I want to add a second request function that pays in LINK instead of native ETH, while keeping the existing native payment path. Show me how to add the LINK-paid request function. The subscription is already funded with both LINK and ETH.

@@ -1,0 +1,17 @@
+You are evaluating whether the response handles live VRF facts correctly.
+
+Check:
+1. When the prompt depends on a specific coordinator address, wrapper address, LINK token address, or key hash, the response either provides a known example (with a note to verify) or directs the user to the official supported networks page
+2. Response does not confidently invent current coordinator addresses, key hash bytes32 values, or network-specific parameters from memory
+3. Response uses the correct source:
+   - supported-networks.md or https://docs.chain.link/vrf/v2-5/supported-networks for addresses and key hashes
+   - Reference files for integration patterns (no fetch needed)
+   - Official docs for billing parameters
+4. Conceptual guidance (how to write a consumer, what struct to use) is answered directly without suggesting a fetch
+
+Infer from the prompt whether live-source handling is actually required.
+
+Score:
+- 1.0: Correct freshness handling and source choice (PASS)
+- 0.5: Partial freshness awareness but weak source discipline (PASS if minor)
+- 0.0: Invents addresses/key hashes as authoritative or uses wrong source (FAIL)

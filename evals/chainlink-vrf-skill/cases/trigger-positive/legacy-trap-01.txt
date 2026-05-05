@@ -1,0 +1,10 @@
+Here's my contract that uses VRFConsumerBaseV2. Can you help me fix the compilation error? It's saying the coordinator address is wrong.
+
+```solidity
+import "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol";
+
+contract MyGame is VRFConsumerBaseV2 {
+    uint64 s_subscriptionId;
+    // ...
+}
+```

@@ -1,0 +1,1 @@
+How do I read the ETH/USD price feed on Ethereum mainnet? I need to get the latest price in my smart contract and validate that the data is fresh.
