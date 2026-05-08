@@ -3,7 +3,6 @@ name: "[Template] Skills Issues"
 about: 'Describe how the issue was discovered '
 title: "[ISSUE]"
 labels: ''
-assignees: zeuslawyer
 
 ---
 

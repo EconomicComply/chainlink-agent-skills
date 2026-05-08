@@ -1,6 +1,6 @@
 ---
 name: chainlink-vrf-skill
-description: "Help developers integrate Chainlink VRF into smart contracts. Trigger whenever the user mentions VRF, verifiable randomness, random number generation on-chain, requestRandomWords, VRFConsumerBaseV2Plus, or wants provably fair randomness in a smart contract, even if they do not say 'VRF' explicitly."
+description: "Help developers integrate Chainlink VRF into smart contracts. Use for consumer contract generation with VRFConsumerBaseV2Plus, subscription setup and funding (LINK or native), keyHash and gas lane selection, coordinator address lookup and debugging VRF integrations. Trigger on any mention of VRF, verifiable randomness, on-chain random number generation, requestRandomWords, fulfillRandomWords, VRF subscription, VRF coordinator, keyHash, or provably fair randomness in a smart contract, even if the user does not say 'VRF' explicitly."
 license: MIT
 compatibility: Designed for AI agents that implement https://agentskills.io/specification, including Claude Code, Cursor Composer, and Codex-style workflows.
 allowed-tools: Read WebFetch Write Edit Bash
@@ -79,7 +79,7 @@ This skill references official VRF documentation URLs throughout its reference f
 
 1. Generate working code from knowledge and reference files first. Fetch only when a specific detail is missing.
 2. Treat 0-1 fetches as normal, 2-3 as the ceiling. Most questions need no fetches because the reference files contain the implementation guidance.
-3. When a fetch is needed, apply the cascade: WebFetch first; if it returns <1000 chars of useful content, fall back to `curl -s -L -A "Mozilla/5.0 ..." "<url>"`; if both fail, fall back to context7.
+3. When a fetch is needed, apply the cascade: WebFetch first; if it returns <1000 chars of useful content, fall back to `curl -s -L -A "Mozilla/5.0 ..." "<url>"`; if both fail, the Context7 MCP server (`@upstash/context7-mcp`) is a useful fallback for fetching current Chainlink documentation. If no documentation-fetching tool is available, do not silently improvise, instead tell the user that live documentation could not be verified and provide the specific URL so the user can check it directly.
 4. Keep answers proportional — a simple "request a random number" question gets a code block and brief explanation, not a full tutorial.
 5. Generate code only when code is actually needed.
 6. If the user asks to write, build, create, or show a VRF contract or snippet without naming a repository path or file to edit, answer inline with code. Do not ask for filesystem write approval unless the user explicitly asks you to modify files.
