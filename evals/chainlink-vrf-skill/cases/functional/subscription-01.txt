@@ -1,0 +1,1 @@
+Write a Solidity smart contract for Ethereum Sepolia that uses Chainlink VRF with the subscription method to request 2 random words, paying in native ETH. Include the constructor, the request function, and the fulfill callback. Store the random values and emit events. Use the Sepolia coordinator address.

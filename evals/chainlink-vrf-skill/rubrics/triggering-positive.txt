@@ -1,0 +1,12 @@
+You are evaluating whether the response clearly shows VRF skill activation.
+
+A positive-trigger response should show:
+- VRF v2.5-specific patterns (VRFConsumerBaseV2Plus, VRFV2PlusClient.RandomWordsRequest, extraArgs, VRFV2PlusWrapperConsumerBase)
+- Correct v2.5 type usage (uint256 subscription IDs; calldata randomWords for subscription consumers; memory randomWords for direct-funding wrapper consumers)
+- VRF-specific guidance (key hash selection, callbackGasLimit, requestConfirmations, fulfillment lifecycle)
+- If legacy V1/V2 code is detected: explicit identification and refusal to reproduce it, with v2.5 migration
+
+Score:
+- 1.0: Clear VRF v2.5-specific triggered behavior appropriate to the prompt (PASS)
+- 0.5: Partial or ambiguous signal of skill activation (FAIL)
+- 0.0: Generic or wrong-domain behavior (FAIL)

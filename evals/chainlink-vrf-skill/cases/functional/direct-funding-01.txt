@@ -1,0 +1,1 @@
+I want to make a one-off VRF request on Arbitrum mainnet without setting up a subscription. Build me a complete Solidity contract using the VRF v2.5 direct funding method that requests 1 random word paying in native ETH, handles the fulfillment callback, and lets the owner withdraw remaining funds.

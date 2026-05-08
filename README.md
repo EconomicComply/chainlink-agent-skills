@@ -11,6 +11,7 @@ Official Repo for Chainlink skills. Each skill follows the [Agent Skills specifi
 | [chainlink-data-feeds-skill](chainlink-data-feeds-skill/)     | Data Feeds contracts, multi-chain Data Feeds integration                                              |
 | [chainlink-data-streams-skill](chainlink-data-streams-skill/) | Data Streams REST/WebSocket SDKs, report decoding, on-chain verification, and real-time frontend apps |
 | [chainlink-ace-skill](chainlink-ace-skill/)                   | ACE core contracts, Policy Management, Cross-Chain Identity, and compliance token examples            |
+| [chainlink-vrf-skill](chainlink-vrf-skill/)                   | VRF v2.5 subscription and direct-funding consumers, migration from V2, billing, and network addresses |
 
 ## Install
 
@@ -34,6 +35,7 @@ npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-ccip-sk
 npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-data-feeds-skill -g
 npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-data-streams-skill -g
 npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-ace-skill -g
+npx skills add smartcontractkit/chainlink-agent-skills --skill chainlink-vrf-skill -g
 ```
 
 ## Use

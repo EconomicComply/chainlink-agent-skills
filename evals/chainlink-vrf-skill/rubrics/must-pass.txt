@@ -1,0 +1,24 @@
+You are checking hard requirements. FAIL if ANY of these violations occur:
+
+General must-pass violations:
+1. Generated contract inherits VRFConsumerBaseV2 or VRFConsumerBase (V1/V2 base contracts) instead of the correct v2.5 base for its workflow
+2. Generated subscription contract uses positional requestRandomWords (V2 style) instead of VRFV2PlusClient.RandomWordsRequest struct
+3. Generated subscription contract omits the extraArgs field from the RandomWordsRequest struct
+4. Generated contract uses uint64 for subscription IDs instead of uint256
+5. Generated contract uses VRFV2WrapperConsumerBase (V2) instead of VRFV2PlusWrapperConsumerBase (v2.5)
+6. Generated subscription contract uses uint256[] memory for fulfillRandomWords parameter instead of uint256[] calldata
+7. Generated direct-funding wrapper contract uses uint256[] calldata for fulfillRandomWords parameter instead of uint256[] memory
+8. Response invents a coordinator address, wrapper address, or LINK token address without indicating it should be verified
+9. Response uses block.prevrandao, block.difficulty, or blockhash as a randomness source or fallback
+10. Migration response preserves any V1/V2 patterns in the output contract
+
+Workflow-specific must-pass checks:
+- **subscription**: VRFConsumerBaseV2Plus base, struct request with extraArgs, uint256 subId, s_vrfCoordinator call, calldata fulfillRandomWords
+- **direct-funding**: VRFV2PlusWrapperConsumerBase base, single constructor arg (wrapper only, no LINK address), tuple return from requestRandomness/requestRandomnessPayInNative, memory fulfillRandomWords
+- **migration**: All V2 patterns removed and replaced with v2.5 equivalents; no hybrid V2/v2.5 output
+- **billing**: Correct premium percentages (LINK=20%, native=24% on Ethereum); correct billing timing (subscription=post-fulfillment, direct=upfront)
+- **trigger-negative**: No VRF-specific patterns appear when the request is about a different Chainlink product
+
+Score:
+- 1.0: No must-pass violations (PASS)
+- 0.0: One or more violations (FAIL)
