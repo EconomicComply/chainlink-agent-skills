@@ -11,12 +11,12 @@ Read this file when:
 ## Source Of Truth
 
 Use official Chainlink ACE docs for product-scope claims:
-- ACE overview: `https://docs.chain.link/ace`
-- Beta scope: `https://docs.chain.link/ace/beta-scope`
-- Supported networks: `https://docs.chain.link/ace/supported-networks`
-- Coordinator API: `https://docs.chain.link/ace/reference/api/coordinator`
-- Reporting API: `https://docs.chain.link/ace/reference/api/reporting`
-- Reporting concept: `https://docs.chain.link/ace/concepts/reporting`
+- ACE overview: `https://docs.chain.link/ace.md`
+- Beta scope: `https://docs.chain.link/ace/beta-scope.md`
+- Supported networks: `https://docs.chain.link/ace/supported-networks.md`
+- Coordinator API: `https://docs.chain.link/ace/reference/api/coordinator.md`
+- Reporting API: `https://docs.chain.link/ace/reference/api/reporting.md`
+- Reporting concept: `https://docs.chain.link/ace/concepts/reporting.md`
 
 Product scope changes quickly. When the user asks about current availability, supported networks, mainnet readiness, API resources, or Beta limitations, verify the live docs before giving a definitive answer.
 

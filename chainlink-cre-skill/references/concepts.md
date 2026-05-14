@@ -258,6 +258,6 @@ Packages that are pure JavaScript and don't rely on Node.js APIs or native modul
 
 ## Official Documentation
 
-- Consensus computing: `https://docs.chain.link/cre/concepts/consensus-computing`
-- Finality: `https://docs.chain.link/cre/concepts/finality`
-- Non-determinism: `https://docs.chain.link/cre/concepts/non-determinism`
+- Consensus computing: `https://docs.chain.link/cre/concepts/consensus-computing.md`
+- Finality: `https://docs.chain.link/cre/concepts/finality.md`
+- Non-determinism: `https://docs.chain.link/cre/concepts/non-determinism.md`

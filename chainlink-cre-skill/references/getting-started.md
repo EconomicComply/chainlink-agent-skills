@@ -153,7 +153,7 @@ cre account unlink-key --target <target-name>
 
 ## Official Documentation
 
-- Account setup: `https://docs.chain.link/cre/account`
-- CLI installation: `https://docs.chain.link/cre/getting-started/cli-installation`
-- Getting started tutorial: `https://docs.chain.link/cre/getting-started/overview`
-- Organization management: `https://docs.chain.link/cre/organization`
+- Account setup: `https://docs.chain.link/cre/account.md`
+- CLI installation: `https://docs.chain.link/cre/getting-started/cli-installation.md`
+- Getting started tutorial: `https://docs.chain.link/cre/getting-started/overview.md`
+- Organization management: `https://docs.chain.link/cre/organization.md`

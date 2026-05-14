@@ -478,7 +478,7 @@ Import from the local path in your consumer:
 import {ReceiverTemplate} from "./interfaces/ReceiverTemplate.sol";
 ```
 
-Get the contract source code from the official docs page: `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-write/building-consumer-contracts` or open them directly in Remix from the links on that page.
+Get the contract source code from the official docs page: `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-write/building-consumer-contracts.md` or open them directly in Remix from the links on that page.
 
 Example test:
 
@@ -552,7 +552,7 @@ Import from the local path in your consumer:
 import {ReceiverTemplate} from "./interfaces/ReceiverTemplate.sol";
 ```
 
-Get the contract source code from the official docs page: `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-write/building-consumer-contracts`
+Get the contract source code from the official docs page: `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-write/building-consumer-contracts.md`
 
 Example test using Hardhat + ethers:
 
@@ -638,8 +638,8 @@ const display = formatUnits(1000000000000000000n, 18)
 
 ## Official Documentation
 
-- Onchain read (TypeScript): `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-read-ts`
-- Onchain read (Go): `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-read-go`
-- Onchain write: `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-write/writing-data-onchain`
-- Consumer contracts: `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-write/consumer-contracts`
-- Forwarder addresses: `https://docs.chain.link/cre/reference/forwarder-addresses`
+- Onchain read (TypeScript): `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-read-ts.md`
+- Onchain read (Go): `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-read-go.md`
+- Onchain write: `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-write/writing-data-onchain.md`
+- Consumer contracts: `https://docs.chain.link/cre/guides/workflow/using-evm-client/onchain-write/building-consumer-contracts.md`
+- Forwarder addresses: `https://docs.chain.link/cre/guides/workflow/using-evm-client/forwarder-directory-ts.md`

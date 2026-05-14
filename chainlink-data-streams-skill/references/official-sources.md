@@ -15,7 +15,7 @@ Use this file when the answer depends on current Data Streams facts such as avai
 ### Data Streams Docs
 
 URLs:
-- `https://docs.chain.link/data-streams`
+- `https://docs.chain.link/data-streams.md`
 - `https://docs.chain.link/data-streams/llms-full.txt`
 
 Use for:
@@ -32,7 +32,7 @@ Do not use as the only source for:
 ### Credentials and Authentication
 
 URLs:
-- `https://docs.chain.link/data-streams/reference/data-streams-api/authentication`
+- `https://docs.chain.link/data-streams/reference/data-streams-api/authentication.md`
 - `https://chain.link/contact?ref_id=datastreams`
 
 Use for:
@@ -43,8 +43,8 @@ Use for:
 ### Report Schemas and Deprecation
 
 URLs:
-- `https://docs.chain.link/data-streams/reference/report-schema-overview`
-- `https://docs.chain.link/data-streams/deprecating-streams`
+- `https://docs.chain.link/data-streams/reference/report-schema-overview.md`
+- `https://docs.chain.link/data-streams/deprecating-streams.md`
 
 Use for:
 - available stream categories and report schema versions
@@ -54,8 +54,8 @@ Use for:
 ### REST and WebSocket API
 
 URLs:
-- `https://docs.chain.link/data-streams/reference/data-streams-api/interface-api`
-- `https://docs.chain.link/data-streams/reference/data-streams-api/interface-ws`
+- `https://docs.chain.link/data-streams/reference/data-streams-api/interface-api.md`
+- `https://docs.chain.link/data-streams/reference/data-streams-api/interface-ws.md`
 
 Local fallback:
 - `references/public-endpoints-and-addresses.md`
@@ -82,13 +82,13 @@ Use for:
 ### Onchain Verification
 
 URLs:
-- `https://docs.chain.link/data-streams/reference/data-streams-api/onchain-verification`
-- `https://docs.chain.link/data-streams/tutorials/evm-onchain-report-verification`
-- `https://docs.chain.link/data-streams/supported-networks`
+- `https://docs.chain.link/data-streams/reference/data-streams-api/onchain-verification.md`
+- `https://docs.chain.link/data-streams/tutorials/evm-onchain-report-verification.md`
+- `https://docs.chain.link/data-streams/supported-networks.md`
 - `https://github.com/smartcontractkit/documentation/blob/main/src/features/feeds/data/StreamsNetworksData.ts`
-- `https://docs.chain.link/data-streams/tutorials/solana-onchain-report-verification`
-- `https://docs.chain.link/data-streams/tutorials/solana-offchain-report-verification`
-- `https://docs.chain.link/data-streams/tutorials/stellar-onchain-report-verification`
+- `https://docs.chain.link/data-streams/tutorials/solana-onchain-report-verification.md`
+- `https://docs.chain.link/data-streams/tutorials/solana-offchain-report-verification.md`
+- `https://docs.chain.link/data-streams/tutorials/stellar-onchain-report-verification.md`
 
 Local fallback:
 - `references/public-endpoints-and-addresses.md`
@@ -116,7 +116,7 @@ Re-check package version and source files before relying on newly added simulato
 ### Frontend and Candlestick Data
 
 URLs:
-- `https://docs.chain.link/data-streams/reference/candlestick-api`
+- `https://docs.chain.link/data-streams/reference/candlestick-api.md`
 
 Use for:
 - OHLC history endpoints
@@ -126,7 +126,7 @@ Use for:
 ### Billing
 
 URLs:
-- `https://docs.chain.link/data-streams/billing`
+- `https://docs.chain.link/data-streams/billing.md`
 - `https://chain.link/contact?ref_id=datastreams`
 
 Use only to redirect users to official Chainlink contact channels. Do not expose, infer, or summarize private billing details.

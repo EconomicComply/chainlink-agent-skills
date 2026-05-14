@@ -15,10 +15,10 @@ Use this file only when the answer depends on current CCIP facts that can change
 ### CCIP Docs
 
 URL:
-- `https://docs.chain.link/ccip`
-- EVM tutorials: `https://docs.chain.link/ccip/tutorials/evm`
-- Solana (SVM) tutorials: `https://docs.chain.link/ccip/tutorials/svm`
-- Aptos tutorials: `https://docs.chain.link/ccip/tutorials/aptos`
+- `https://docs.chain.link/ccip.md`
+- EVM tutorials: `https://docs.chain.link/ccip/tutorials/evm.md`
+- Solana (SVM) tutorials: `https://docs.chain.link/ccip/tutorials/svm.md`
+- Aptos tutorials: `https://docs.chain.link/ccip/tutorials/aptos.md`
 
 Use for:
 - concepts and architecture

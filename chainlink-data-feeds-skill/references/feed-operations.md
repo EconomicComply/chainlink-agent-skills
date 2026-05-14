@@ -79,7 +79,7 @@ contract PriceConsumerWithSequencerCheck {
 
 ### Supported networks
 
-Proxy addresses available for: Arbitrum, Base, Celo, Mantle, MegaETH, Metis, OP, Scroll, Soneium, X Layer, zkSync. Retrieve the correct address from `https://docs.chain.link/data-feeds/l2-sequencer-feeds`.
+Proxy addresses available for: Arbitrum, Base, Celo, Mantle, MegaETH, Metis, OP, Scroll, Soneium, X Layer, zkSync. Retrieve the correct address from `https://docs.chain.link/data-feeds/l2-sequencer-feeds.md`.
 
 ### Decision path
 
@@ -90,7 +90,7 @@ If the consumer is on a supported L2: add the sequencer uptime check. If on Ethe
 Chainlink may deprecate feeds due to low usage or lack of economic sustainability under Chainlink Economics 2.0.
 
 1. Data quality monitoring stops 2 weeks before the deprecation date. After that point the feed may return stale or unreliable data.
-2. Deprecation schedule: `https://docs.chain.link/data-feeds/deprecating-feeds`
+2. Deprecation schedule: `https://docs.chain.link/data-feeds/deprecating-feeds.md`
 3. Subscribe to the Chainlink Discord `data-feeds-user-notifications` channel for advance alerts.
 4. The deprecation table includes: Network, Pair, Deprecation date, Deviation threshold, Heartbeat (seconds), Decimals, Aggregator address, Asset name/type, Market hours.
 5. Feeds listed in official Chainlink documentation are reviewed. Community or custom deployments may carry additional risks and require independent due diligence.
@@ -125,7 +125,7 @@ contract FeedVerifier {
 
 - `getFlag(proxy)` returns `true` if the feed is official and active. `false` means the feed is not Chainlink-managed or has been deactivated.
 - Inactive feeds are removed from the registry.
-- Each network has its own Flags contract address. Retrieve the correct address from `https://docs.chain.link/data-feeds/contract-registry`.
+- Each network has its own Flags contract address. Retrieve the correct address from `https://docs.chain.link/data-feeds/contract-registry.md`.
 
 ## Developer Responsibilities
 

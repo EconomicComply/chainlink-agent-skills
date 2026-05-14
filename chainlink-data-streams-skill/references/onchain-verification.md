@@ -22,9 +22,9 @@ Code generation and review are allowed. Any deployment, transaction submission, 
 
 Official sources:
 
-- `https://docs.chain.link/data-streams/reference/data-streams-api/onchain-verification`
-- `https://docs.chain.link/data-streams/tutorials/evm-onchain-report-verification`
-- `https://docs.chain.link/data-streams/supported-networks`
+- `https://docs.chain.link/data-streams/reference/data-streams-api/onchain-verification.md`
+- `https://docs.chain.link/data-streams/tutorials/evm-onchain-report-verification.md`
+- `https://docs.chain.link/data-streams/supported-networks.md`
 - `https://github.com/smartcontractkit/chainlink-local`
 - `https://www.npmjs.com/package/@chainlink/local`
 
@@ -267,8 +267,8 @@ Local testing guidance:
 
 Official sources:
 
-- `https://docs.chain.link/data-streams/tutorials/solana-onchain-report-verification`
-- `https://docs.chain.link/data-streams/tutorials/solana-offchain-report-verification`
+- `https://docs.chain.link/data-streams/tutorials/solana-onchain-report-verification.md`
+- `https://docs.chain.link/data-streams/tutorials/solana-offchain-report-verification.md`
 
 Expected pattern:
 
@@ -391,7 +391,7 @@ Do not translate EVM verifier assumptions into Solana account or CPI code.
 
 Official source:
 
-- `https://docs.chain.link/data-streams/tutorials/stellar-onchain-report-verification`
+- `https://docs.chain.link/data-streams/tutorials/stellar-onchain-report-verification.md`
 
 Expected pattern:
 

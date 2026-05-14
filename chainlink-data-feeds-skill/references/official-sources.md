@@ -14,7 +14,7 @@ Use this file only when the answer depends on live Data Feeds facts that the oth
 ### Chainlink Data Feeds Docs
 
 URL:
-- `https://docs.chain.link/data-feeds`
+- `https://docs.chain.link/data-feeds.md`
 
 Use for:
 - concepts and architecture
@@ -30,10 +30,10 @@ Do not use as the primary source for:
 ### Feed Address Pages
 
 URLs:
-- Price Feeds: `https://docs.chain.link/data-feeds/price-feeds/addresses`
-- SmartData / MVR Feeds: `https://docs.chain.link/data-feeds/smartdata/addresses`
-- Rate and Volatility Feeds: `https://docs.chain.link/data-feeds/rates-feeds/addresses`
-- US Government Macroeconomic: `https://docs.chain.link/data-feeds/us-government-macroeconomic/addresses`
+- Price Feeds: `https://docs.chain.link/data-feeds/price-feeds/addresses.md`
+- SmartData / MVR Feeds: `https://docs.chain.link/data-feeds/smartdata/addresses.md`
+- Rate and Volatility Feeds: `https://docs.chain.link/data-feeds/rates-feeds/addresses.md`
+- US Government Macroeconomic: `https://docs.chain.link/data-feeds/us-government-macroeconomic/addresses.md`
 
 Use for:
 - looking up the correct proxy address for a specific pair on a specific network
@@ -43,7 +43,7 @@ Use for:
 ### Feed Deprecation Schedule
 
 URL:
-- `https://docs.chain.link/data-feeds/deprecating-feeds`
+- `https://docs.chain.link/data-feeds/deprecating-feeds.md`
 
 Use for:
 - checking if a specific feed is scheduled for deprecation
@@ -53,7 +53,7 @@ Use for:
 ### Contract Registry
 
 URL:
-- `https://docs.chain.link/data-feeds/contract-registry`
+- `https://docs.chain.link/data-feeds/contract-registry.md`
 
 Use for:
 - finding the IFlags contract address for a specific network

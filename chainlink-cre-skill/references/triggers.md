@@ -303,6 +303,6 @@ Topic filtering can be used to narrow the events received. Check the SDK referen
 
 ## Official Documentation
 
-- Cron trigger: `https://docs.chain.link/cre/guides/workflow/using-triggers/cron-trigger-ts`
-- HTTP trigger: `https://docs.chain.link/cre/guides/workflow/using-triggers/http-trigger-ts`
-- EVM log trigger: `https://docs.chain.link/cre/guides/workflow/using-triggers/evm-log-trigger-ts`
+- Cron trigger: `https://docs.chain.link/cre/guides/workflow/using-triggers/cron-trigger-ts.md`
+- HTTP trigger: `https://docs.chain.link/cre/guides/workflow/using-triggers/http-trigger/overview-ts.md`
+- EVM log trigger: `https://docs.chain.link/cre/guides/workflow/using-triggers/evm-log-trigger-ts.md`

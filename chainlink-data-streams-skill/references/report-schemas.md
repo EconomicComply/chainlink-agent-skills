@@ -6,8 +6,8 @@ Use this file when the user asks to decode reports, understand schema properties
 
 Schema versions are stable once published; Chainlink can add new schema versions over time. Keep the local catalog below as the offline fallback, but verify current availability, deprecation, SDK package versions, and stream entitlement from:
 
-- `https://docs.chain.link/data-streams/reference/report-schema-overview`
-- `https://docs.chain.link/data-streams/deprecating-streams`
+- `https://docs.chain.link/data-streams/reference/report-schema-overview.md`
+- `https://docs.chain.link/data-streams/deprecating-streams.md`
 - `https://github.com/smartcontractkit/data-streams-sdk`
 
 This local catalog was derived from the official Go SDK report packages in `github.com/smartcontractkit/data-streams-sdk/go@v1.2.4`, which exposes decoders for v1 through v13. TypeScript docs also describe automatic report decoding through v13.

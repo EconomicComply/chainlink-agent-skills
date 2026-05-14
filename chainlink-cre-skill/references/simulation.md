@@ -41,7 +41,7 @@ If the workflow has an **EVM log trigger** and the CLI needs a concrete event (o
 
 Use **`--non-interactive`** when the process must not answer any follow-up questions. With `--non-interactive`, the CLI requires **`--trigger-index`**: the 0-based index of the handler to run (first handler is `0`, second is `1`, and so on). Combine **`--target`**, **`--non-interactive`**, **`--trigger-index`**, and the HTTP or EVM flags that match the selected handler.
 
-Examples (see also `https://docs.chain.link/cre/reference/cli/workflow`):
+Examples (see also `https://docs.chain.link/cre/reference/cli/workflow.md`):
 
 ```bash
 cre workflow simulate my-workflow \
@@ -287,5 +287,5 @@ cre workflow simulate my-workflow --target staging-settings --timeout 120s
 
 ## Official Documentation
 
-- Simulation guide: `https://docs.chain.link/cre/getting-started/overview`
-- Deploying workflows: `https://docs.chain.link/cre/guides/workflow/deploying-a-workflow`
+- Simulation guide: `https://docs.chain.link/cre/getting-started/overview.md`
+- Deploying workflows: `https://docs.chain.link/cre/guides/operations/deploying-workflows.md`

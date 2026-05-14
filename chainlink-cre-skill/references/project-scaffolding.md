@@ -455,7 +455,7 @@ Any package requiring native/N-API modules is incompatible. When uncertain about
 
 ## Official Documentation
 
-- Getting started tutorial: `https://docs.chain.link/cre/getting-started/overview`
-- Project configuration (TS): `https://docs.chain.link/cre/reference/project-configuration-ts`
-- Project configuration (Go): `https://docs.chain.link/cre/reference/project-configuration-go`
+- Getting started tutorial: `https://docs.chain.link/cre/getting-started/overview.md`
+- Project configuration (TS): `https://docs.chain.link/cre/reference/project-configuration-ts.md`
+- Project configuration (Go): `https://docs.chain.link/cre/reference/project-configuration-go.md`
 - CRE Templates repo: `https://github.com/smartcontractkit/cre-templates`
