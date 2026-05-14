@@ -26,11 +26,11 @@ Do not use this workflow for live-network execution, message monitoring, or basi
 
 Start from these official docs:
 
-- Overview: `https://docs.chain.link/chainlink-local`
-- Foundry local simulator: `https://docs.chain.link/chainlink-local/build/ccip/foundry/local-simulator`
-- Foundry forked environments: `https://docs.chain.link/chainlink-local/build/ccip/foundry/local-simulator-fork`
-- Hardhat local simulator: `https://docs.chain.link/chainlink-local/build/ccip/hardhat/local-simulator`
-- Hardhat forked environments: `https://docs.chain.link/chainlink-local/build/ccip/hardhat/local-simulator-fork`
+- Overview: `https://docs.chain.link/chainlink-local.md`
+- Foundry local simulator: `https://docs.chain.link/chainlink-local/build/ccip/foundry/local-simulator.md`
+- Foundry forked environments: `https://docs.chain.link/chainlink-local/build/ccip/foundry/local-simulator-fork.md`
+- Hardhat local simulator: `https://docs.chain.link/chainlink-local/build/ccip/hardhat/local-simulator.md`
+- Hardhat forked environments: `https://docs.chain.link/chainlink-local/build/ccip/hardhat/local-simulator-fork.md`
 
 Core simulator types:
 

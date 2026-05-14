@@ -85,4 +85,4 @@ For networks not listed above, the common mock forwarder address is `0x6E9EE680e
 
 ## Freshness Note
 
-This data was sourced from the official forwarder directory at `https://docs.chain.link/cre/guides/workflow/using-evm-client/forwarder-directory-ts`. If addresses seem outdated, fetch that page for the latest values.
+This data was sourced from the official forwarder directory at `https://docs.chain.link/cre/guides/workflow/using-evm-client/forwarder-directory-ts.md`. If addresses seem outdated, fetch that page for the latest values.

@@ -8,9 +8,9 @@ These details are public developer integration data. Keep credentials secret and
 
 Endpoint domains and verifier addresses are public, but they are still live deployment facts. Before production deployment, any transaction, or any user-facing claim that an address is current, fetch the official docs again:
 
-- `https://docs.chain.link/data-streams/reference/data-streams-api/interface-api`
-- `https://docs.chain.link/data-streams/reference/data-streams-api/interface-ws`
-- `https://docs.chain.link/data-streams/supported-networks`
+- `https://docs.chain.link/data-streams/reference/data-streams-api/interface-api.md`
+- `https://docs.chain.link/data-streams/reference/data-streams-api/interface-ws.md`
+- `https://docs.chain.link/data-streams/supported-networks.md`
 - `https://github.com/smartcontractkit/documentation/blob/main/src/features/feeds/data/StreamsNetworksData.ts`
 
 If docs fetching fails, tell the user which URL could not be verified and say that this table is the offline fallback. This table was checked against the public Chainlink docs repository on 2026-04-27 at commit `d3e2464b68546a899c015c438241a788a17a79ea`.

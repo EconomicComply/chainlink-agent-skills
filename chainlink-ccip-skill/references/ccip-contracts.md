@@ -42,13 +42,13 @@ These defaults are grounded in the CCIP EVM best-practices docs and the `CCIPRec
 
 Reference points:
 
-- Arbitrary messaging tutorial: `https://docs.chain.link/ccip/tutorials/evm/send-arbitrary-data`
-- Token transfer tutorial: `https://docs.chain.link/ccip/tutorials/evm/transfer-tokens-from-contract`
-- Programmable token transfer tutorial: `https://docs.chain.link/ccip/tutorials/evm/programmable-token-transfers`
-- Defensive programmable token transfer tutorial: `https://docs.chain.link/ccip/tutorials/evm/programmable-token-transfers-defensive`
-- EVM best practices: `https://docs.chain.link/ccip/concepts/best-practices/evm`
-- `CCIPReceiver` API reference: `https://docs.chain.link/ccip/api-reference/evm/v1.6.1/ccip-receiver`
-- `IRouterClient` API reference: `https://docs.chain.link/ccip/api-reference/evm/v1.6.1/i-router-client`
+- Arbitrary messaging tutorial: `https://docs.chain.link/ccip/tutorials/evm/send-arbitrary-data.md`
+- Token transfer tutorial: `https://docs.chain.link/ccip/tutorials/evm/transfer-tokens-from-contract.md`
+- Programmable token transfer tutorial: `https://docs.chain.link/ccip/tutorials/evm/programmable-token-transfers.md`
+- Defensive programmable token transfer tutorial: `https://docs.chain.link/ccip/tutorials/evm/programmable-token-transfers-defensive.md`
+- EVM best practices: `https://docs.chain.link/ccip/concepts/best-practices/evm.md`
+- `CCIPReceiver` API reference: `https://docs.chain.link/ccip/api-reference/evm/v1.6.1/ccip-receiver.md`
+- `IRouterClient` API reference: `https://docs.chain.link/ccip/api-reference/evm/v1.6.1/i-router-client.md`
 
 ## Core Building Blocks
 

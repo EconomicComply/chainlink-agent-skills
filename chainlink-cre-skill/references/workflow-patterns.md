@@ -449,7 +449,7 @@ const initWorkflow = (config: Config) => {
 
 ## Official Documentation
 
-- Secrets management: `https://docs.chain.link/cre/guides/workflow/secrets`
-- Time in workflows: `https://docs.chain.link/cre/guides/workflow/time-in-workflows-ts`
-- Randomness: `https://docs.chain.link/cre/guides/workflow/using-randomness`
-- Project configuration: `https://docs.chain.link/cre/reference/project-configuration-ts`
+- Secrets management: `https://docs.chain.link/cre/guides/workflow/secrets.md`
+- Time in workflows: `https://docs.chain.link/cre/guides/workflow/time-in-workflows-ts.md`
+- Randomness: `https://docs.chain.link/cre/guides/workflow/using-randomness.md`
+- Project configuration: `https://docs.chain.link/cre/reference/project-configuration-ts.md`

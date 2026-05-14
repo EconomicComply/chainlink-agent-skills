@@ -9,7 +9,9 @@ on:
       - "chainlink-ccip-skill/**"
       - "chainlink-cre-skill/**"
       - "chainlink-data-feeds-skill/**"
+      - "chainlink-data-streams-skill/**"
       - "chainlink-ace-skill/**"
+      - "chainlink-vrf-skill/**"
       - "evals/**"
   workflow_dispatch:
     inputs:
@@ -28,11 +30,10 @@ on:
           - chainlink-ccip-skill
           - chainlink-cre-skill
           - chainlink-data-feeds-skill
+          - chainlink-data-streams-skill
           - chainlink-ace-skill
+          - chainlink-vrf-skill
         default: all
-
-permissions:
-  contents: read
 
 env:
   ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -59,7 +60,7 @@ jobs:
             exit 0
           fi
 
-          ALL_SKILLS=("chainlink-ccip-skill" "chainlink-cre-skill" "chainlink-data-feeds-skill" "chainlink-ace-skill")
+          ALL_SKILLS=("chainlink-ccip-skill" "chainlink-cre-skill" "chainlink-data-feeds-skill" "chainlink-data-streams-skill" "chainlink-ace-skill" "chainlink-vrf-skill")
 
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
@@ -77,7 +78,7 @@ jobs:
               echo "skills=[$JOINED]" >> "$GITHUB_OUTPUT"
             fi
           else
-            echo 'skills=["chainlink-ccip-skill","chainlink-cre-skill","chainlink-data-feeds-skill","chainlink-ace-skill"]' >> "$GITHUB_OUTPUT"
+            echo 'skills=["chainlink-ccip-skill","chainlink-cre-skill","chainlink-data-feeds-skill","chainlink-data-streams-skill","chainlink-ace-skill","chainlink-vrf-skill"]' >> "$GITHUB_OUTPUT"
           fi
 
   eval:

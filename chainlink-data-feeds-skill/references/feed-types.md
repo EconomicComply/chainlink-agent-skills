@@ -52,7 +52,7 @@ Multi-variable response feeds return multiple fields per update. See `mvr-feeds.
 
 ### Addresses
 
-SmartData feed addresses: `https://docs.chain.link/data-feeds/smartdata/addresses`
+SmartData feed addresses: `https://docs.chain.link/data-feeds/smartdata/addresses.md`
 
 Filter using "Show Multiple-Variable Response (MVR) feeds" checkbox for MVR variants.
 
@@ -82,7 +82,7 @@ Read rate and volatility feeds exactly like standard Price Feeds — only the fe
 
 ### Addresses
 
-Rate and volatility feed addresses: `https://docs.chain.link/data-feeds/rates-feeds/addresses`
+Rate and volatility feed addresses: `https://docs.chain.link/data-feeds/rates-feeds/addresses.md`
 
 ## Tokenized Equity Feeds
 

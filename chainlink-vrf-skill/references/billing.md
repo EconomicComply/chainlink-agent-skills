@@ -52,7 +52,7 @@ total request cost = (coordinator_flat_fee + total gas cost) × ((100 + wrapper_
 
 These values differ per network. Check the supported networks page for the canonical values.
 
-> **Note:** These examples use Ethereum Mainnet values from the official docs. Testnet overhead values (e.g. Sepolia) differ — check the [Supported Networks](https://docs.chain.link/vrf/v2-5/supported-networks) page for the network you are targeting before estimating costs.
+> **Note:** These examples use Ethereum Mainnet values from the official docs. Testnet overhead values (e.g. Sepolia) differ — check the [Supported Networks](https://docs.chain.link/vrf/v2-5/supported-networks.md) page for the network you are targeting before estimating costs.
 
 ### Worked Example: Subscription (LINK Payment, Ethereum Mainnet)
 

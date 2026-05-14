@@ -20,15 +20,15 @@ Use this file when an answer depends on current ACE repository facts, source cod
 
 | Topic | URL |
 | --- | --- |
-| ACE overview | `https://docs.chain.link/ace` |
-| Beta scope | `https://docs.chain.link/ace/beta-scope` |
-| Supported networks | `https://docs.chain.link/ace/supported-networks` |
-| Release notes | `https://docs.chain.link/ace/release-notes` |
-| Architecture | `https://docs.chain.link/ace/concepts/architecture` |
-| Reporting | `https://docs.chain.link/ace/concepts/reporting` |
-| Coordinator API | `https://docs.chain.link/ace/reference/api/coordinator` |
-| Reporting API | `https://docs.chain.link/ace/reference/api/reporting` |
-| SecureMintPolicy | `https://docs.chain.link/ace/reference/policy-library/secure-mint-policy` |
+| ACE overview | `https://docs.chain.link/ace.md` |
+| Beta scope | `https://docs.chain.link/ace/beta-scope.md` |
+| Supported networks | `https://docs.chain.link/ace/supported-networks.md` |
+| Release notes | `https://docs.chain.link/ace/release-notes.md` |
+| Architecture | `https://docs.chain.link/ace/concepts/architecture.md` |
+| Reporting | `https://docs.chain.link/ace/concepts/reporting.md` |
+| Coordinator API | `https://docs.chain.link/ace/reference/api/coordinator.md` |
+| Reporting API | `https://docs.chain.link/ace/reference/api/reporting.md` |
+| SecureMintPolicy | `https://docs.chain.link/ace/reference/policy-library/secure-mint-policy.md` |
 
 ## Top-Level Docs
 

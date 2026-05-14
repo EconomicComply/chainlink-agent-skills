@@ -24,13 +24,13 @@ Do not use this workflow for generic sender/receiver contracts, plain route disc
 
 Reference points:
 
-- CCT overview: `https://docs.chain.link/ccip/concepts/cross-chain-token/overview`
-- Registration and administration: `https://docs.chain.link/ccip/concepts/cross-chain-token/evm/registration-administration`
-- Token Manager: `https://docs.chain.link/ccip/tutorials/evm/token-manager`
-- Register from an EOA (Burn & Mint): `https://docs.chain.link/ccip/tutorials/evm/cross-chain-tokens/register-from-eoa-burn-mint-hardhat`
-- Register from an EOA (Lock & Mint): `https://docs.chain.link/ccip/tutorials/evm/cross-chain-tokens/register-from-eoa-lock-mint-hardhat`
-- Set token pool rate limits: `https://docs.chain.link/ccip/tutorials/evm/cross-chain-tokens/update-rate-limiters-hardhat`
-- Configure additional networks: `https://docs.chain.link/ccip/tutorials/evm/cross-chain-tokens/configure-additional-networks-hardhat`
+- CCT overview: `https://docs.chain.link/ccip/concepts/cross-chain-token/overview.md`
+- Registration and administration: `https://docs.chain.link/ccip/concepts/cross-chain-token/evm/registration-administration.md`
+- Token Manager: `https://docs.chain.link/ccip/tutorials/evm/token-manager.md`
+- Register from an EOA (Burn & Mint): `https://docs.chain.link/ccip/tutorials/evm/cross-chain-tokens/register-from-eoa-burn-mint-hardhat.md`
+- Register from an EOA (Lock & Mint): `https://docs.chain.link/ccip/tutorials/evm/cross-chain-tokens/register-from-eoa-lock-mint-hardhat.md`
+- Set token pool rate limits: `https://docs.chain.link/ccip/tutorials/evm/cross-chain-tokens/update-rate-limiters-hardhat.md`
+- Configure additional networks: `https://docs.chain.link/ccip/tutorials/evm/cross-chain-tokens/configure-additional-networks-hardhat.md`
 
 ## Core Decisions
 

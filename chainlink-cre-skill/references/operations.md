@@ -194,5 +194,5 @@ Check the service quotas documentation for current limits.
 
 ## Official Documentation
 
-- Deploying workflows: `https://docs.chain.link/cre/guides/workflow/deploying-a-workflow`
-- Service quotas: `https://docs.chain.link/cre/reference/service-quotas`
+- Deploying workflows: `https://docs.chain.link/cre/guides/operations/deploying-workflows.md`
+- Service quotas: `hhttps://docs.chain.link/cre/service-quotas.md`

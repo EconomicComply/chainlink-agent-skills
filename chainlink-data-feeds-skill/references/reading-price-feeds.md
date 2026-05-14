@@ -258,8 +258,8 @@ Important caveats:
 
 ## Feed Address Lookup
 
-- Price feed addresses by network: `https://docs.chain.link/data-feeds/price-feeds/addresses`
-- SmartData feed addresses: `https://docs.chain.link/data-feeds/smartdata/addresses`
+- Price feed addresses by network: `https://docs.chain.link/data-feeds/price-feeds/addresses.md`
+- SmartData feed addresses: `https://docs.chain.link/data-feeds/smartdata/addresses.md`
 - Contract registry (IFlags): use `getFlag(proxyAddress)` to verify a feed is official and active on-chain. Flags contract addresses are network-specific.
 
 Common testnet examples (Sepolia):
@@ -285,7 +285,7 @@ Always verify addresses against the official documentation before use. Feed addr
 1. Feed addresses, heartbeat intervals, and deviation thresholds change over time. When generating code for a specific network and pair, verify the address and parameters against the official feed address pages.
 2. The `AggregatorV3Interface` and `AggregatorV2V3Interface` contract interfaces are stable. Code patterns using these interfaces do not require re-verification.
 3. L2 sequencer uptime feed proxy addresses are network-specific and should be verified against the official L2 Sequencer Uptime Feeds documentation.
-4. When in doubt about whether a feed is still active, check the deprecation schedule at `https://docs.chain.link/data-feeds/deprecating-feeds`.
+4. When in doubt about whether a feed is still active, check the deprecation schedule at `https://docs.chain.link/data-feeds/deprecating-feeds.md`.
 
 ## Triggering Tests
 

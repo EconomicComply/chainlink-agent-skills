@@ -420,7 +420,7 @@ The `key` must match the secret name stored in the Vault DON. The `owner` is the
 
 ## Official Documentation
 
-- HTTP GET (TypeScript): `https://docs.chain.link/cre/guides/workflow/using-http-client/get-request-ts`
-- HTTP GET (Go): `https://docs.chain.link/cre/guides/workflow/using-http-client/get-request-go`
-- HTTP POST (TypeScript): `https://docs.chain.link/cre/guides/workflow/using-http-client/post-request-ts`
-- Confidential HTTP: `https://docs.chain.link/cre/guides/workflow/using-http-client/confidential-http-ts`
+- HTTP GET (TypeScript): `https://docs.chain.link/cre/guides/workflow/using-http-client/get-request-ts.md`
+- HTTP GET (Go): `https://docs.chain.link/cre/guides/workflow/using-http-client/get-request-go.md`
+- HTTP POST (TypeScript): `https://docs.chain.link/cre/guides/workflow/using-http-client/post-request-ts.md`
+- Confidential HTTP: `https://docs.chain.link/cre/capabilities/confidential-http-ts.md`

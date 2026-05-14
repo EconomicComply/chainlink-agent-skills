@@ -252,29 +252,29 @@ Solana supports CCT registration with different governance models:
 - SPL Token multisig (educational)
 - Production multisig governance (enterprise-grade dual-layer governance)
 
-Tutorial: `https://docs.chain.link/ccip/tutorials/svm/cross-chain-tokens`
+Tutorial: `https://docs.chain.link/ccip/tutorials/svm/cross-chain-tokens.md`
 
 ## Official Tutorials
 
 ### Solana
 
-- Getting started: `https://docs.chain.link/ccip/getting-started/svm`
-- All SVM tutorials: `https://docs.chain.link/ccip/tutorials/svm`
-- SVM to EVM: `https://docs.chain.link/ccip/tutorials/svm/source`
-- EVM to SVM: `https://docs.chain.link/ccip/tutorials/svm/destination`
-- Token transfers (SVM source): `https://docs.chain.link/ccip/tutorials/svm/source/token-transfers`
-- Token transfers (SVM dest): `https://docs.chain.link/ccip/tutorials/svm/destination/token-transfers`
-- Arbitrary messaging (EVM to SVM): `https://docs.chain.link/ccip/tutorials/svm/destination/arbitrary-messaging`
-- Implementing CCIP receivers: `https://docs.chain.link/ccip/tutorials/svm/receivers`
+- Getting started: `https://docs.chain.link/ccip/getting-started/svm.md`
+- All SVM tutorials: `https://docs.chain.link/ccip/tutorials/svm.md`
+- SVM to EVM: `https://docs.chain.link/ccip/tutorials/svm/source.md`
+- EVM to SVM: `https://docs.chain.link/ccip/tutorials/svm/destination.md`
+- Token transfers (SVM source): `https://docs.chain.link/ccip/tutorials/svm/source/token-transfers.md`
+- Token transfers (SVM dest): `https://docs.chain.link/ccip/tutorials/svm/destination/token-transfers.md`
+- Arbitrary messaging (EVM to SVM): `https://docs.chain.link/ccip/tutorials/svm/destination/arbitrary-messaging.md`
+- Implementing CCIP receivers: `https://docs.chain.link/ccip/tutorials/svm/receivers.md`
 
 ### Aptos
 
-- Getting started: `https://docs.chain.link/ccip/getting-started/aptos`
-- All Aptos tutorials: `https://docs.chain.link/ccip/tutorials/aptos`
-- Aptos to EVM: `https://docs.chain.link/ccip/tutorials/aptos/source`
-- EVM to Aptos: `https://docs.chain.link/ccip/tutorials/aptos/destination`
-- Token transfers (Aptos source): `https://docs.chain.link/ccip/tutorials/aptos/source/token-transfers`
-- Token transfers (Aptos dest): `https://docs.chain.link/ccip/tutorials/aptos/destination/token-transfers`
+- Getting started: `https://docs.chain.link/ccip/getting-started/aptos.md`
+- All Aptos tutorials: `https://docs.chain.link/ccip/tutorials/aptos.md`
+- Aptos to EVM: `https://docs.chain.link/ccip/tutorials/aptos/source.md`
+- EVM to Aptos: `https://docs.chain.link/ccip/tutorials/aptos/destination.md`
+- Token transfers (Aptos source): `https://docs.chain.link/ccip/tutorials/aptos/source/token-transfers.md`
+- Token transfers (Aptos dest): `https://docs.chain.link/ccip/tutorials/aptos/destination/token-transfers.md`
 
 ### SDK Examples (Multi-Chain)
 
