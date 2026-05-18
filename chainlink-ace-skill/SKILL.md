@@ -1,12 +1,12 @@
 ---
 name: chainlink-ace-skill
-description: "Handle Chainlink ACE (Automated Compliance Engine) work using the public smartcontractkit/chainlink-ace repository and official docs.chain.link ACE Platform docs. Use for audited ACE core contracts, managed Platform/Beta scope, Coordinator API, Reporting API, Policy Management, PolicyEngine, PolicyProtected, policy chains, custom policies, extractors, mappers, Cross-Chain Identity (CCIDs), credential registries, KYC/AML credentials, sanctions screening, regulated tokens, ERC-20 and ERC-3643 compliance token examples, upgrade guidance, and BUSL licensing. Trigger on any mention of ACE, Automated Compliance Engine, chainlink-ace, Chainlink compliance, policy enforcement, ERC-3643, or onchain compliance rules, even if the user does not explicitly say 'ACE'."
+description: "Handle Chainlink ACE (Automated Compliance Engine) work using the public smartcontractkit/chainlink-ace repository and official docs.chain.link ACE Platform docs. Use for audited ACE core contracts, managed Platform/Beta scope, Coordinator API, Reporting API, Policy Management, PolicyEngine, PolicyProtected, policy chains, custom policies, extractors, mappers, Cross-Chain Identity (CCIDs), credential registries, KYC/AML credentials, sanctions screening, regulated tokens, ERC-20 and ERC-3643 compliance token examples, a bundled Foundry starter kit for an ACE-protected stablecoin with sanctions and transfer-cap walkthroughs, upgrade guidance, and BUSL licensing. Trigger on any mention of ACE, Automated Compliance Engine, chainlink-ace, Chainlink compliance, policy enforcement, ERC-3643, regulated token starter kit, or onchain compliance rules, even if the user does not explicitly say 'ACE'."
 license: MIT
 compatibility: Designed for AI agents that implement https://agentskills.io/specification, including Claude Code, Cursor Composer, and Codex-style workflows.
 allowed-tools: Read WebFetch Write Edit Bash
 metadata:
   purpose: Chainlink ACE core contracts and managed Platform developer onboarding, compliance architecture, product scope, and reference guidance
-  version: "0.0.5"
+  version: "0.0.6"
 ---
 
 # Chainlink ACE Skill
@@ -27,8 +27,9 @@ Help users build with Chainlink ACE. For open-source contract integration, treat
 8. Read [references/cross-chain-identity.md](references/cross-chain-identity.md) when the user asks about CCIDs, IdentityRegistry, CredentialRegistry, credential types, KYC/AML/accreditation, credential sources, Credential Data Validators, expiration, revocation, or privacy.
 9. Read [references/contracts-and-source.md](references/contracts-and-source.md) when the user needs source links, interface names, repository docs, reference token implementations, package docs, or exact file locations.
 10. Read [references/official-sources.md](references/official-sources.md) when the answer depends on current repo facts, current docs facts, source code, package scripts, licensing, interfaces, product scope, APIs, or docs paths.
-11. Read [assets/ace-docs-index.md](assets/ace-docs-index.md) only when you need a map of public repository documentation covered by this skill.
-12. Do not load reference files speculatively.
+11. Read [references/starter-kit.md](references/starter-kit.md) when the user asks for a working sample, hands-on example, deploy walkthrough, scaffold, starter kit, regulated-token template, or wants to try ACE in Foundry/Anvil/Sepolia. The bundled project lives at [templates/starter-kit/](templates/starter-kit/); copy it into the user's workspace rather than recreating it from scratch.
+12. Read [assets/ace-docs-index.md](assets/ace-docs-index.md) only when you need a map of public repository documentation covered by this skill.
+13. Do not load reference files speculatively.
 
 ## Routing
 

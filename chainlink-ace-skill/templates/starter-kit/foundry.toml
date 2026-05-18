@@ -1,0 +1,18 @@
+[profile.default]
+src = "src"
+out = "out"
+solc = "0.8.26"
+optimizer = true
+optimizer_runs = 8000
+via_ir = true
+evm_version = "cancun"
+libs = ["node_modules", "lib"]
+
+[fmt]
+bracket_spacing = false
+int_types = "long"
+line_length = 120
+multiline_func_header = "all"
+quote_style = "double"
+tab_width = 2
+wrap_comments = true

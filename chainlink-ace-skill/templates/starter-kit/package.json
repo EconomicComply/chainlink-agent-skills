@@ -1,0 +1,24 @@
+{
+  "name": "ace-stablecoin-starter",
+  "version": "1.0.0",
+  "private": true,
+  "license": "BUSL-1.1",
+  "scripts": {
+    "build": "forge build --sizes",
+    "fmt": "forge fmt",
+    "test": "forge test --offline",
+    "test:gas": "forge test --offline --gas-report",
+    "step:01": "forge script ./script/01_Deploy.s.sol --via-ir --broadcast --rpc-url \"$RPC_URL\"",
+    "step:02": "forge script ./script/02_ManageRole.s.sol --via-ir --broadcast --rpc-url \"$RPC_URL\"",
+    "step:03": "forge script ./script/03_MintTokens.s.sol --via-ir --broadcast --rpc-url \"$RPC_URL\"",
+    "step:04": "forge script ./script/04_AddSanctionsPolicy.s.sol --via-ir --broadcast --rpc-url \"$RPC_URL\"",
+    "step:05": "forge script ./script/05_BlockAddress.s.sol --via-ir --broadcast --rpc-url \"$RPC_URL\"",
+    "step:06": "forge script ./script/06_AddTransferLimit.s.sol --via-ir --broadcast --rpc-url \"$RPC_URL\""
+  },
+  "devDependencies": {
+    "@chainlink/ace": "^1.0.0",
+    "@openzeppelin/contracts": "^5.6.1",
+    "@openzeppelin/contracts-upgradeable": "^5.6.1",
+    "forge-std": "github:foundry-rs/forge-std#v1.9.4"
+  }
+}
