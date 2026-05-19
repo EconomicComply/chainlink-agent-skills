@@ -7,6 +7,8 @@ import {StarterKitBase} from "./utils/StarterKitBase.s.sol";
 
 contract GrantMintRole is StarterKitBase {
   function run() external {
+    _announceNetwork("02_ManageRole");
+
     uint256 deployerKey = vm.envUint("PRIVATE_KEY");
     string memory roleName = vm.envOr("ROLE_NAME", string("MINTER"));
     address rolePolicyAddress = vm.envAddress("RBAC_POLICY_ADDRESS");

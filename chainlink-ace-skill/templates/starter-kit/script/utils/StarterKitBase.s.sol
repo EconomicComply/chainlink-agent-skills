@@ -4,11 +4,22 @@ pragma solidity 0.8.26;
 import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 import {Script} from "forge-std/Script.sol";
 import {console} from "forge-std/console.sol";
+import {HelperConfig} from "../HelperConfig.s.sol";
 
 abstract contract StarterKitBase is Script {
   bytes32 internal constant MINTER_ROLE = keccak256("MINTER_ROLE");
   bytes32 internal constant BURNER_ROLE = keccak256("BURNER_ROLE");
   bytes32 internal constant FREEZER_ROLE = keccak256("FREEZER_ROLE");
+
+  function _getNetworkConfig() internal returns (HelperConfig.NetworkConfig memory) {
+    HelperConfig helper = new HelperConfig();
+    return helper.getConfigByChainId(block.chainid);
+  }
+
+  function _announceNetwork(string memory step) internal {
+    HelperConfig.NetworkConfig memory config = _getNetworkConfig();
+    console.log(string.concat("[", config.name, "] ", step, " (chainId ", vm.toString(block.chainid), ")"));
+  }
 
   function _deployProxy(address implementation, bytes memory initData) internal returns (address) {
     return address(new ERC1967Proxy(implementation, initData));

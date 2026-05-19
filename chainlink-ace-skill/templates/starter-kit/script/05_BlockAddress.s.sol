@@ -7,6 +7,8 @@ import {StarterKitBase} from "./utils/StarterKitBase.s.sol";
 
 contract BlockAddress is StarterKitBase {
   function run() external {
+    _announceNetwork("05_BlockAddress");
+
     uint256 deployerKey = vm.envUint("PRIVATE_KEY");
     address sanctionsListAddress = vm.envAddress("SANCTIONS_LIST_ADDRESS");
     address sanctionedAddress = vm.envAddress("SANCTIONED_ADDRESS");

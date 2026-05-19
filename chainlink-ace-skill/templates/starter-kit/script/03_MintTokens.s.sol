@@ -7,6 +7,8 @@ import {StarterKitBase} from "./utils/StarterKitBase.s.sol";
 
 contract MintTokens is StarterKitBase {
   function run() external {
+    _announceNetwork("03_MintTokens");
+
     uint256 minterKey = vm.envUint("MINTER_PRIVATE_KEY");
     address tokenAddress = vm.envAddress("TOKEN_ADDRESS");
     address recipient = vm.envOr("MINT_RECIPIENT", vm.addr(minterKey));

@@ -11,6 +11,8 @@ import {StarterKitBase} from "./utils/StarterKitBase.s.sol";
 
 contract AddTransferLimit is StarterKitBase {
   function run() external {
+    _announceNetwork("06_AddTransferLimit");
+
     uint256 deployerKey = vm.envUint("PRIVATE_KEY");
     address deployer = vm.addr(deployerKey);
     address policyEngineAddress = vm.envAddress("POLICY_ENGINE_ADDRESS");

@@ -12,6 +12,8 @@ import {StarterKitBase} from "./utils/StarterKitBase.s.sol";
 
 contract AddSanctionsPolicy is StarterKitBase {
   function run() external {
+    _announceNetwork("04_AddSanctionsPolicy");
+
     uint256 deployerKey = vm.envUint("PRIVATE_KEY");
     address deployer = vm.addr(deployerKey);
     address policyEngineAddress = vm.envAddress("POLICY_ENGINE_ADDRESS");

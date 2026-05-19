@@ -27,12 +27,15 @@ The kit's own [README.md](../templates/starter-kit/README.md) targets human deve
 | --- | --- |
 | `src/ACEStablecoin.sol` | The protected token. The file devs adapt for their asset. |
 | `src/TraditionalStablecoin.sol` | Pre-ACE comparison contract. Not deployed — kept for the README's diff. |
+| `src/ACEStablecoinGasHarness.sol` | Two minimal harness tokens used by the gas-comparison tests. Not deployed. |
 | `src/policies/SanctionsPolicy.sol` | Example of a custom policy. Implements `Policy.run()`. |
 | `src/policies/SanctionsList.sol` | Backing storage for the custom policy. |
 | `script/01_Deploy.s.sol` … `06_AddTransferLimit.s.sol` | Sequential deploy / configuration steps. |
+| `script/HelperConfig.s.sol` | Multi-chain config lookup (chainId → token name/symbol, network label). Used by every step script. |
 | `script/utils/StarterKitBase.s.sol` | Shared proxy-deployment helper. Used by every step script. |
-| `test/ACEStablecoin.t.sol` | Foundry tests for the integration. |
-| `foundry.toml`, `remappings.txt`, `package.json`, `.env.example` | Project scaffolding. `package.json` declares `@chainlink/ace` as a dev dependency; `remappings.txt` points `@chainlink/policy-management/` at the installed package path. |
+| `test/ACEStablecoin.t.sol` | Integration tests for the three Acts plus an ACE-vs-OpenZeppelin gas comparison. |
+| `test/policies/MaxPolicy.t.sol`, `test/policies/SanctionsList.t.sol` | Boundary tests for the policy primitives the kit relies on. |
+| `foundry.toml`, `remappings.txt`, `package.json`, `.env.example` | Project scaffolding. `package.json` declares `@chainlink/ace` as a dev dependency; `remappings.txt` points `@chainlink/policy-management/` at the installed package path. `foundry.toml` defines `[rpc_endpoints]` and `[etherscan]` blocks for Sepolia-class testnets (Ethereum, Arbitrum, Base, Optimism, Avalanche Fuji). |
 
 ## The Three Acts
 
@@ -53,7 +56,8 @@ The point Acts 2 and 3 share: the token contract is never touched again.
 | `src/ACEStablecoin.sol` state, asset-specific functions, decimals | `script/01_Deploy.s.sol` to add/remove base policies for the deployment | `script/utils/StarterKitBase.s.sol` |
 | `src/policies/SanctionsPolicy.sol` for the custom rule | `runPolicy` modifier placement (every protected function needs it) | `node_modules/@chainlink/ace/**` (npm-installed library) |
 | New custom policies alongside `SanctionsPolicy.sol` | The `__PolicyProtected_init(initialOwner, policyEngine)` call in `initialize` | `foundry.toml`, `remappings.txt` (unless retargeting Solidity or pinning a different `@chainlink/ace` version) |
-| `package.json` scripts | The selector-to-policy attachments in deploy scripts | `test/ACEStablecoin.t.sol` test scaffolding (extend, do not delete) |
+| New chain entries in `script/HelperConfig.s.sol` and matching `foundry.toml` `[rpc_endpoints]`/`[etherscan]` blocks | `package.json` scripts and step ordering | Test files under `test/` (extend, do not delete the existing cases) |
+| `package.json` dependencies (versioned bumps with audit) | The selector-to-policy attachments in deploy scripts | The selector signatures used in policy attachments (must match the token's actual function signatures) |
 
 If the user wants to remove the freeze functionality, the asset-specific frozen-account state lives in the token (`s_frozenAccounts`) — that goes. The `runPolicy` modifier on `freeze` / `unfreeze` and the corresponding role attachments in `01_Deploy.s.sol` go with it. The `PolicyProtectedUpgradeable` mixin stays.
 

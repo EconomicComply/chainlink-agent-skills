@@ -1,5 +1,25 @@
 # Future-Proof Regulated Token with ACE
 
+> **Note**
+> This repository represents an example of using a Chainlink product or service and is provided to help you understand how to interact with Chainlink's systems and services so that you can integrate them into your own. This template is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, has not been audited, and may be missing key checks or error handling to make the usage of the product more clear. Do not use the code in this example in a production environment without completing your own audits and applying best practices. Neither Chainlink Labs, the Chainlink Foundation, nor Chainlink node operators are responsible for unintended outputs that are generated due to errors in code.
+
+## Table of contents
+
+- [Why this is better](#why-this-is-better)
+- [What changes in your contract](#what-changes-in-your-contract)
+- [Repo layout](#repo-layout)
+- [Prerequisites](#prerequisites)
+- [Quick start](#quick-start)
+- [Act 1: Same thing you already know](#act-1-same-thing-you-already-know)
+- [Act 2: Add a blacklist without touching your contract](#act-2-add-a-blacklist-without-touching-your-contract)
+- [Act 3: The future-proof moment](#act-3-the-future-proof-moment)
+- [Running on a public testnet](#running-on-a-public-testnet)
+- [Production best practices](#production-best-practices)
+- [What else is possible](#what-else-is-possible)
+- [What's next](#whats-next)
+- [Resources](#resources)
+- [License](#license)
+
 A Foundry starter kit for stablecoin and regulated-token teams that want the same role control, pause logic, and blacklist behavior they already build today, but without hardcoding compliance into the token forever.
 
 In under 10 minutes, you can deploy a stablecoin, replace token-level access control with ACE policies, add a blacklist after deployment, and then add a transfer cap without changing the token contract at all.
@@ -161,20 +181,29 @@ That is the only contract integration step that matters: wire in `PolicyProtecte
 │   ├── 04_AddSanctionsPolicy.s.sol
 │   ├── 05_BlockAddress.s.sol
 │   ├── 06_AddTransferLimit.s.sol
+│   ├── HelperConfig.s.sol
 │   └── utils/
 └── test/
-    └── ACEStablecoin.t.sol
+    ├── ACEStablecoin.t.sol
+    └── policies/
 ```
-
-The ACE framework (`@chainlink/policy-management/...` imports) is pulled from npm via the `@chainlink/ace` package. After `npm install` it lives under `node_modules/@chainlink/ace/packages/policy-management/src/` and is resolved by the remapping in `remappings.txt`. You do not need to vendor the framework into this project.
 
 `TraditionalStablecoin.sol` exists for comparison only. The walkthrough deploys only the ACE version.
 
+The ACE framework (`@chainlink/policy-management/...` imports) is pulled from npm via the [`@chainlink/ace`](https://www.npmjs.com/package/@chainlink/ace) package, declared in `package.json`. After `npm install` the framework sources live under `node_modules/@chainlink/ace/packages/policy-management/src/` and are resolved by the remapping in `remappings.txt`. You do not need to vendor the framework or fetch a git submodule.
+
+## Prerequisites
+
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) (latest stable) — `forge`, `cast`, and `anvil`
+- [Node.js](https://nodejs.org/) `>= 20` and `npm` for the OpenZeppelin and forge-std packages
+- A funded EOA on whichever public testnet you plan to use (see [Running on a public testnet](#running-on-a-public-testnet))
+- Block-explorer API keys if you want to verify contracts (`ETHERSCAN_API_KEY`, `ARBISCAN_API_KEY`, etc.)
+
 ## Quick start
 
-This walkthrough is Anvil-first so you can see the full story locally in minutes. Sepolia is covered at the end once you want to run the same flow on a public testnet.
+This walkthrough is Anvil-first so you can see the full story locally in minutes. Public testnets are covered later once you want to run the same flow against a shared chain.
 
-Install dependencies:
+Install dependencies (this pulls `@chainlink/ace`, OpenZeppelin, and forge-std):
 
 ```bash
 npm install
@@ -531,6 +560,47 @@ Takeaway: no token upgrade, no redeploy, no new audit of the token. Just a new p
 
 That is the future-proof claim in one terminal session: when requirements change, the token stays put.
 
+## Running on a public testnet
+
+Once you have run the full walkthrough locally on Anvil, the same six scripts run unchanged on any of the testnets pre-wired in `foundry.toml` and `.env.example`:
+
+| Network          | foundry.toml profile | RPC env var                    |
+| ---------------- | -------------------- | ------------------------------ |
+| Ethereum Sepolia | `ethereumSepolia`    | `ETHEREUM_SEPOLIA_RPC_URL`     |
+| Arbitrum Sepolia | `arbitrumSepolia`    | `ARBITRUM_SEPOLIA_RPC_URL`     |
+| Base Sepolia     | `baseSepolia`        | `BASE_SEPOLIA_RPC_URL`         |
+| OP Sepolia       | `optimismSepolia`    | `OPTIMISM_SEPOLIA_RPC_URL`     |
+| Avalanche Fuji   | `avalancheFuji`      | `AVALANCHE_FUJI_RPC_URL`       |
+
+To switch from Anvil to a public testnet:
+
+1. Set the matching `*_RPC_URL` in your `.env` and re-`source` it.
+2. Replace `PRIVATE_KEY` and `MINTER_PRIVATE_KEY` with funded accounts you control.
+3. Replace `MINTER_ADDRESS`, `ALICE_ADDRESS`, `BOB_ADDRESS`, and `SANCTIONED_ADDRESS` with real testnet wallets.
+4. Run the six scripts in order. The deployed addresses are chain-specific, so re-export `POLICY_ENGINE_ADDRESS`, `TOKEN_ADDRESS`, and friends after each step before moving on.
+
+The npm scripts target `$RPC_URL` for convenience. To target a specific named profile instead, call forge directly:
+
+```bash
+forge script script/01_Deploy.s.sol:DeployStarterKit \
+  --rpc-url ethereumSepolia \
+  --broadcast
+```
+
+`HelperConfig.s.sol` will pick the right `NetworkConfig` automatically based on `block.chainid` and the deployment scripts will log which network they target at the top of each run.
+
+## Production best practices
+
+This walkthrough is intentionally simple so the ACE pattern is easy to see. Before reusing any of this code on mainnet, treat the following as required reading:
+
+- **Audit the deployment scripts and any custom policy you write.** ACE itself is audited upstream, but your `SanctionsList`/`SanctionsPolicy` or any custom policy you derive from this kit is your responsibility.
+- **Use a multisig or governance contract as the owner of the PolicyEngine.** The owner can attach, detach, and reconfigure policies on protected functions — that is the most sensitive key in the system.
+- **Never reuse Anvil dev keys outside Anvil.** The defaults in `.env.example` are publicly known. Replace every key and address before pointing the kit at a public RPC.
+- **Pin your dependencies.** ACE is installed via the `@chainlink/ace` npm package and OpenZeppelin via npm at exact versions. Commit `package-lock.json` so the dependency graph is reproducible, and do not silently bump versions; review the diff first.
+- **Verify the implementation contracts behind every proxy.** The walkthrough uses `ERC1967Proxy` for `PolicyEngine`, the token, and each policy — verify both the proxy and the implementation on the relevant block explorer.
+- **Confirm policy attachments after every change.** Use `cast call` to read back `getPolicies(...)` from `PolicyEngine` before assuming a new attachment is live.
+- **Plan upgrades around state.** `ACEStablecoin` stores `frozen` accounts locally; if you fork it, remember that any storage layout change requires a careful upgrade plan because the token sits behind a proxy.
+
 ## What else is possible
 
 This starter kit shows the first three moments that matter most for a stablecoin team, and for many RWA teams at the start of a regulated-token rollout:
@@ -580,13 +650,14 @@ This repo is the self-serve proof that the contract pattern works. The platform 
 
 If you want a walkthrough of that managed experience, use Chainlink’s contact flow here: [Talk to an expert](https://chain.link/contact).
 
-## Sepolia
+## Resources
 
-Once you have run the full walkthrough locally on Anvil, the next step is to run the exact same story on Sepolia.
+- [Chainlink ACE policy-management package](https://github.com/smartcontractkit/chainlink-ace/tree/main/packages/policy-management)
+- [Chainlink ACE documentation](https://docs.chain.link/)
+- [OpenZeppelin upgradeable contracts](https://docs.openzeppelin.com/contracts/5.x/upgradeable)
+- [Foundry book](https://book.getfoundry.sh/)
+- Sibling Foundry starter kits: [foundry-starter-kit](https://github.com/smartcontractkit/foundry-starter-kit), [ccip-starter-kit-foundry](https://github.com/smartcontractkit/ccip-starter-kit-foundry)
 
-For a Sepolia run:
+## License
 
-* Set `RPC_URL` to your Sepolia endpoint.
-* Replace the sample private keys with funded Sepolia accounts.
-* Run the same six scripts in order. The addresses printed by each step are chain-specific, so re-export them for Sepolia before moving to the next act.
-* Expect the same policy flow on Sepolia as local Anvil: deploy, grant, mint, add sanctions, block, then attach the transfer cap.
+This repository is licensed under the [Business Source License 1.1](./LICENSE) (BUSL-1.1), matching the upstream Chainlink ACE contracts it depends on. See [LICENSE](./LICENSE) for the exact terms and the change date.

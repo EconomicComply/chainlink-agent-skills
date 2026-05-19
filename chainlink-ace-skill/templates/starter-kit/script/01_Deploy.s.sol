@@ -7,14 +7,18 @@ import {PolicyEngine} from "@chainlink/policy-management/core/PolicyEngine.sol";
 import {PausePolicy} from "@chainlink/policy-management/policies/PausePolicy.sol";
 import {RoleBasedAccessControlPolicy} from "@chainlink/policy-management/policies/RoleBasedAccessControlPolicy.sol";
 import {console} from "forge-std/console.sol";
+import {HelperConfig} from "./HelperConfig.s.sol";
 import {StarterKitBase} from "./utils/StarterKitBase.s.sol";
 
 contract DeployStarterKit is StarterKitBase {
   function run() external {
+    HelperConfig.NetworkConfig memory config = _getNetworkConfig();
+    _announceNetwork("01_Deploy");
+
     uint256 deployerKey = vm.envUint("PRIVATE_KEY");
     address deployer = vm.addr(deployerKey);
-    string memory tokenName = vm.envOr("TOKEN_NAME", string("Future Proof USD"));
-    string memory tokenSymbol = vm.envOr("TOKEN_SYMBOL", string("FPUSD"));
+    string memory tokenName = vm.envOr("TOKEN_NAME", config.defaultTokenName);
+    string memory tokenSymbol = vm.envOr("TOKEN_SYMBOL", config.defaultTokenSymbol);
 
     vm.startBroadcast(deployerKey);
 
