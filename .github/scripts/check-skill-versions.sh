@@ -15,9 +15,43 @@ file_exists_at() {
   git cat-file -e "$1:$2" 2>/dev/null
 }
 
+# A path is dot-only when any component under the skill root starts with "."
+# (e.g. .cursor-plugin/plugin.json or .gitignore). Such changes do not require
+# a metadata.version bump.
+file_is_dot_only() {
+  local skill="$1"
+  local file="$2"
+  local rel="${file#"$skill/"}"
+  local part
+  IFS='/' read -ra parts <<<"$rel"
+  for part in "${parts[@]}"; do
+    if [[ "$part" == .* ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+skill_has_substantive_changes() {
+  local skill="$1"
+  local file
+  while IFS= read -r file; do
+    [ -z "$file" ] && continue
+    if ! file_is_dot_only "$skill" "$file"; then
+      return 0
+    fi
+  done < <(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- "$skill/")
+  return 1
+}
+
 changed_skills=()
 while IFS= read -r skill; do
-  [ -n "$skill" ] && changed_skills+=("$skill")
+  [ -z "$skill" ] && continue
+  if skill_has_substantive_changes "$skill"; then
+    changed_skills+=("$skill")
+  else
+    echo "$skill: only dot-path changes (e.g. .cursor-plugin); skipping version check."
+  fi
 done < <(
   git diff --name-only "$BASE_SHA" "$HEAD_SHA" \
     | awk -F/ '/^[a-z][a-z0-9-]*-skill\// { print $1 }' \
@@ -25,7 +59,11 @@ done < <(
 )
 
 if [ ${#changed_skills[@]} -eq 0 ]; then
-  echo "No skill directories changed; nothing to check."
+  if git diff --name-only "$BASE_SHA" "$HEAD_SHA" | awk -F/ '/^[a-z][a-z0-9-]*-skill\// { found=1; exit } END { exit !found }'; then
+    echo "Skill directories changed, but only dot-path files; nothing to check."
+  else
+    echo "No skill directories changed; nothing to check."
+  fi
   exit 0
 fi
 
